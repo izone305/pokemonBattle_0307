@@ -83,15 +83,43 @@ function makeTags(howMany, whatString, mather){
     tag.style.width = "100%";
     tag.style.height = "50%";
     tag.style.position = "flex";
-    tag.style.justifyContent = "center";
-    tag.style.alignItems = "center";
-
-    tag.style.fontSize = "60px"
     mather.appendChild(tag)
   }
 }
+
 makeTags(2,"div",header.children[0]);
 makeTags(2,"div",header.children[3]);
-nameCreate(header.children[0].children[0], pokeSecond)
-nameCreate(header.children[3].children[0], pokeFirst)
+nameCreate(header.children[0].children[0], pokeSecond);
+nameCreate(header.children[3].children[0], pokeFirst);
+header.children[0].children[0].style.fontSize = "60px";
+header.children[3].children[0].style.fontSize = "60px";
 
+
+
+makeTags(2,"div",header.children[0].children[1]);
+makeTags(2,"div",header.children[3].children[1]);
+makeTags(2,"div",header.children[0].children[1].children[0]);
+makeTags(2,"div",header.children[3].children[1].children[0]);
+
+makeTags(2,"div",header.children[0].children[1].children[0].children[0]);
+header.children[0].children[1].children[0].children[0].style.display = "flex";
+header.children[0].children[1].children[0].children[0].style.flexDirection = "row";
+header.children[0].children[1].children[0].children[0].children[0].style.width = "20%";
+header.children[0].children[1].children[0].children[0].children[1].style.width = "80%";
+header.children[0].children[1].children[0].children[0].children[0].style.height = "100%";
+header.children[0].children[1].children[0].children[0].children[1].style.height = "100%";
+
+makeTags(2,"div",header.children[3].children[1].children[0].children[0]);
+header.children[3].children[1].children[0].children[0].style.display = "flex";
+header.children[3].children[1].children[0].children[0].style.flexDirection = "row";
+header.children[3].children[1].children[0].children[0].children[0].style.width = "20%";
+header.children[3].children[1].children[0].children[0].children[1].style.width = "80%";
+header.children[3].children[1].children[0].children[0].children[0].style.height = "100%";
+header.children[3].children[1].children[0].children[0].children[1].style.height = "100%";
+
+
+header.children[0].children[1].children[0].children[0].children[0].textContent = "HP";
+header.children[3].children[1].children[0].children[0].children[0].textContent = "HP";
+
+header.children[0].children[1].children[0].children[0].children[1].style.backgroundColor = "#10be10";
+header.children[3].children[1].children[0].children[0].children[1].style.backgroundColor = "#10be10";
