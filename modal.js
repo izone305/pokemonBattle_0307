@@ -41,7 +41,8 @@ for(let i = 0; i < 3; i++){
 }
 
 function moveFunc(){
-  console.log(pokeSkill[0]);
+  // 실행
+  movePoke(header.children[1], 1000, 150);
 }
 ul.children[0].addEventListener('click', moveFunc);
 

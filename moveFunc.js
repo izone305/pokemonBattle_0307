@@ -12,5 +12,3 @@ function movePoke(name, time, delay) {
 });
 }
 
-// 실행
-movePoke(header.children[1], 1000, 150);
