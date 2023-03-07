@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    #root {
+      border: 1px solid black;
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="poke"></div>
+  </div>
+</body>
+<script>
+  const poke = document.getElementById('poke');
+  poke.style.backgroundColor = "silver";
+  poke.style.width = "200px";
+  poke.style.height = "200px";
+  poke.style.position = "absolute";
+  poke.style.bottom = "10vh";
+  poke.style.left = "10vw";
+
+  function moveFunc(time) {
+    poke.animate([
+    {transform: "translate(0, 0)"},
+    {transform: "translate(300%, -150%)"},
+    {transform: "translate(300%, -150%)", offset: 0.7},
+    {transform: "translate(0, 0)"},
+  ], {
+    duration: time,
+    fill : "forwards"
+  });
+  }
+
+  moveFunc(500);
+</script>
+</html>
