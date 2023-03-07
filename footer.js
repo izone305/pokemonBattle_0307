@@ -5,15 +5,15 @@ function divStyle(target, w, h, b) {
 }
 // 메인 footer
 let footer = document.getElementById("footer");
-divStyle(footer, "100%", "30%", "1px solid border");
-// footer.style.borderRadius
+divStyle(footer, "100%", "30%", "6px double black");
+footer.style.borderRadius = "20px";
 footer.style.position = "relative";
 footer.style.backgroundClip = "white";
 
 // 첫 줄 영역
 let first = document.createElement("div");
 footer.appendChild(first);
-divStyle(footer.children[0], "100%", "50%", "1px solid red");
+divStyle(footer.children[0], "100%", "50%", "");
 footer.children[0].style.display = "flex";
 footer.children[0].style.flexDirection = "row";
 
@@ -27,7 +27,7 @@ footer.children[0].children[0].style.height = "0";
 // 첫 줄 영역 왼쪽
 let firstLeft = document.createElement("div");
 footer.children[0].appendChild(firstLeft);
-divStyle(footer.children[0].children[1], "30%", "100%", "1px solid red");
+divStyle(footer.children[0].children[1], "30%", "100%", "");
 footer.children[0].children[1].innerHTML = "<h1>싸우다</h1>";
 footer.children[0].children[1].style.cursor = "pointer";
 footer.children[0].children[1].style.textAlign = "center";
@@ -41,7 +41,7 @@ footer.children[0].children[2].style.height = "0";
 // 첫 줄 영역 오른쪽
 let firstRight = document.createElement("div");
 footer.children[0].appendChild(firstRight);
-divStyle(footer.children[0].children[3], "30%", "100%", "1px solid red");
+divStyle(footer.children[0].children[3], "30%", "100%", "");
 footer.children[0].children[3].innerHTML = "<h1>가방</h1>";
 footer.children[0].children[3].style.textAlign = "center";
 
@@ -49,7 +49,7 @@ footer.children[0].children[3].style.textAlign = "center";
 // 둘째 줄 영역
 let second = document.createElement("div");
 footer.appendChild(second);
-divStyle(footer.children[1], "100%", "50%", "1px solid red");
+divStyle(footer.children[1], "100%", "50%", "");
 footer.children[1].style.display = "flex";
 footer.children[1].style.flexDirection = "row";
 
@@ -61,7 +61,7 @@ footer.children[1].children[0].style.height = "0";
 // 둘째 줄 영역 왼쪽
 let secondLeft = document.createElement("div");
 footer.children[1].appendChild(secondLeft);
-divStyle(footer.children[1].children[1], "30%", "100%", "1px solid red");
+divStyle(footer.children[1].children[1], "30%", "100%", "");
 footer.children[1].children[1].innerHTML = "<h1>포켓몬</h1>";
 footer.children[1].children[1].style.textAlign = "center";
 
@@ -73,7 +73,7 @@ footer.children[1].children[2].style.height = "0";
 // 둘째 줄 영역 오른쪽
 let secondRight = document.createElement("div");
 footer.children[1].appendChild(secondRight);
-divStyle(footer.children[1].children[3], "30%", "100%", "1px solid red");
+divStyle(footer.children[1].children[3], "30%", "100%", "");
 footer.children[1].children[3].innerHTML = "<h1>도망치다</h1>";
 footer.children[1].children[3].style.textAlign = "center";
 
@@ -141,7 +141,4 @@ footer.children[1].children[3].addEventListener('mouseover', function () {
 // 모달창 띄우기
 footer.children[0].children[1].addEventListener('click', function() {
   console.log("click");
-  let ul = document.getElementById("ul");
-  console.log(ul)
-  // ul.style.display = "display";
 });
