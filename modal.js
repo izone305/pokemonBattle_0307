@@ -39,6 +39,13 @@ for(let i = 0; i < 3; i++){
   styleMaker(ul.children[i], "100%", "30%", "", "", "", "", "12pt", "700", "");
 
 }
+ul.style.position = "absolute";
+ul.style.top = "50px";
+ul.style.left = "70px";
+ul.style.backgroundColor = "white";
+ul.style.scale = "1.7"
+
+
 
 function moveFunc(){
   // 실행
