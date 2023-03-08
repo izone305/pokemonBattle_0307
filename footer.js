@@ -164,6 +164,11 @@ footer.children[0].children[1].addEventListener('click', function () {
   console.log("click");
   modalWarp.style.display = "block";
 })
+footer.children[1].children[1].addEventListener('click', function () {
+  pokeSelectWindow()
+})
+
+
 
 window.addEventListener('keydown', function (event) {
   if (event.key === 'ArrowRight') {
@@ -204,6 +209,8 @@ window.addEventListener('keydown', function (event) {
     if (arr[0] === 0 && arr[1] === 0) {
       console.log("click");
       modalWarp.style.display = "block";
+    }else if(arr[0] === 1 && arr[1] === 0){
+      pokeSelectWindow()
     }
   }
 })
