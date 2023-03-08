@@ -40,7 +40,7 @@ for(let i = 0; i < 3; i++){
   createEle("li", "", "", "", ul);
   styleMaker(ul.children[i], "100%", "30%", "", "", "", "", "12pt", "700", "");
 }
-console.dir(ul.children[0]);
+console.dir(ul);
 
 btm.style.width = "200px"
 btm.style.position = "relative";

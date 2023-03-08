@@ -8,15 +8,13 @@ function skillName(nth){
   skillxhr.send();
   skillxhr.addEventListener("load",function(){
     const objectSkillPoke = JSON.parse(skillxhr.response);
-    for(let i = 0; i < 3; i++) {
+    for(let i = 0; i < ul.children.length; i++) {
       let pokeSkillInt = getRandomInt(0, objectSkillPoke.moves.length);
-      console.log(pokeSkillInt)
+      // console.log(objectSkillPoke.moves.length);
+      // console.log(pokeSkillInt)
       ul.children[i].textContent = objectSkillPoke.moves[pokeSkillInt].move.name;
-      // pokeSkillArray.push(objectSkillPoke.moves[pokeSkillInt].move.name);
-      console.log(pokeSkillArray);
     }
   })
 }
 const pokeSkillArray = [];
 skillName(pokeFirst);
-console.log(pokeSkillArray);
