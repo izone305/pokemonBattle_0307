@@ -22,6 +22,7 @@ function imageCreate(imageObj, nth){
     pokeimage.src = objectURL;
 })
 }
+// 뒷모습 출력 함수
 function imageCreateBack(imageObj, nth){
   const pokeimageBack = imageObj;
   const xhrBack = new XMLHttpRequest();
