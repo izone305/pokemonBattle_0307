@@ -12,3 +12,17 @@ function movePoke(name, time, delay) {
 });
 }
 
+function blinkPoke(name, time, delay) {
+  name.animate([
+    {opacity: "1"},
+    {opacity: "0"},
+    {opacity: "1"},
+    {opacity: "0"},
+    {opacity: "1"},
+  ], {
+    duration: time,
+    delay: delay,
+  });
+}
+
+

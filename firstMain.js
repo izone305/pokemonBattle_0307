@@ -1,5 +1,12 @@
+
+// 코드가 많이 지저분한데 기능구현 끝나면 보기쉽게 정리해놓겠습니다...
+
 // pokeAPI
 const root = document.getElementById("root");
+root.style.borderRadius = "20px";
+root.style.border = "6px double black";
+root.style.position = "relative";
+root.style.top = "50px";
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -22,9 +29,22 @@ function imageCreate(imageObj, nth){
     pokeimage.src = objectURL;
 })
 }
+// 뒷모습 출력 함수
+function imageCreateBack(imageObj, nth){
+  const pokeimageBack = imageObj;
+  const xhrBack = new XMLHttpRequest();
+  const _URLBack = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${nth}.png`;
+  xhrBack.open("GET",_URLBack);
+  xhrBack.responseType = 'blob';
+  xhrBack.send();
+  xhrBack.addEventListener("load",function(){
+    const objectURL = URL.createObjectURL(xhrBack.response);
+    pokeimageBack.src = objectURL;
+})
+}
 function nameCreate(textObj, nth){
   const namexhr = new XMLHttpRequest();
-  const _nameURL = `https://pokeapi.co/api/v2/pokemon-species/${nth}/`;  
+  const _nameURL = `https://pokeapi.co/api/v2/pokemon-species/${nth}/`;
   namexhr.open("GET",_nameURL);
   namexhr.send();
   namexhr.addEventListener("load",function(){
@@ -52,10 +72,13 @@ for(let i = 0; i < 4; i++){
   div.style.height = "250px";
   header.appendChild(div);
 }
+
 header.children[0].style.top = "10px";
 header.children[0].style.left= "10px";
 header.children[1].style.bottom= "10px";
 header.children[1].style.left= "10px";
+// 포켓몬 겹칠 때, 위에 오도록 z-index 추가
+header.children[1].style.zIndex= "1";
 header.children[2].style.top= "10px";
 header.children[2].style.right= "10px";
 header.children[3].style.bottom= "10px";
@@ -67,7 +90,7 @@ header.children[1].appendChild(pokeFirstImage);
 let pokeSecondImage = document.createElement("img");
 header.children[2].appendChild(pokeSecondImage);
 
-imageCreate(pokeFirstImage, pokeFirst)
+imageCreateBack(pokeFirstImage, pokeFirst)
 // pokeFirstImage.style.transformOrigin = "top left"
 // pokeFirstImage.style.scale = "1"
 imageCreate(pokeSecondImage, pokeSecond);
