@@ -205,9 +205,8 @@ window.addEventListener('keydown', function (event) {
 let modalWarp = footer.nextSibling.nextSibling
 }
 // 모달창 띄우기
-/*
 footer.children[0].children[1].addEventListener('click', function() {
   console.log("click");
   modalWarp.style.display = "block";
 
-})*/
+});
