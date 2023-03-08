@@ -1,4 +1,4 @@
-pokeSelectWindow()
+// pokeSelectWindow()
 
 function pokeMakeTags(howMany, whatString, mather, widthNum){
   for(let i = 0; i <howMany; i ++){
@@ -72,7 +72,7 @@ function pokeSelectWindow(){
 
   }
 
-  
+
 }
 
 

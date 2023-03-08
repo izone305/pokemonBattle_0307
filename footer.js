@@ -160,6 +160,11 @@ function changeFunc() {
   footer.children[arr[0]].children[arr[1]].style.alignSelf = "center";
 }
 
+footer.children[0].children[1].addEventListener('click', function () {
+  console.log("click");
+  modalWarp.style.display = "block";
+})
+
 window.addEventListener('keydown', function (event) {
   if (event.key === 'ArrowRight') {
     arr[1] = arr[1] + 2;
@@ -197,10 +202,8 @@ window.addEventListener('keydown', function (event) {
   // Enter를 누르면 모달창 띄우기
   else if (event.key === 'Enter') {
     if (arr[0] === 0 && arr[1] === 0) {
-      footer.children[0].children[1].addEventListener('click', function () {
-        console.log("click");
-        modalWarp.style.display = "block";
-      })
+      console.log("click");
+      modalWarp.style.display = "block";
     }
   }
 })
