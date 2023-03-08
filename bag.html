@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let bagWholeWindow = window.document.body;
+    let bagObject = document.createElement("div");
+    bagObject.id = "bagObject";
+    bagWholeWindow.appendChild(bagObject);
+    bagObject.style.position = "relative";
+    bagObject.style.backgroundColor = "white";
+    bagObject.style.borderRadius = "20px";
+    bagObject.style.border = "6px double black";
+    bagObject.style.height = "88vh";
+    bagObject.style.width = "66vh";
+    bagObject.style.margin = "auto";
+    bagObject.style.zIndex = "2";
+    bagObject.style.padding = "15px";
+    
+    let title = document.createElement("div");
+    bagObject.appendChild(title);
+    title.innerHTML = "가방";
+
+    function flexSet(target, d) {
+      target.style.display = "flex";
+      target.style.flexDirection = d;
+      target.style.alignItems = "center";
+      target.style.justifyContent = "space-evenly";
+    }
+
+    for (let i = 1; i < 5; i++) {
+      let objWrap = document.createElement("div");
+      bagObject.appendChild(objWrap);
+      objWrap.style.border = "1px solid red";
+      objWrap.style.width = "80%";
+      objWrap.style.height = "20%";
+      flexSet(bagObject.children[i], "row");
+      for (let j = 0; j < 4; j++) {
+        let obj = document.createElement("div");
+        objWrap.appendChild(obj);
+        obj.style.border = "1px solid red";
+        obj.style.width = "20%";
+        obj.style.height = "60%";
+      }
+    }
+    flexSet(bagObject, "column");
+  </script>
+</body>
+
+</html>
