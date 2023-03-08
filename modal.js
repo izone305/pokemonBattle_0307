@@ -51,6 +51,7 @@ function moveFunc(){
   // 실행
   movePoke(header.children[1], 1000, 150);
   blinkPoke(header.children[2], 200, 250);
+  // HP 다 떨어지면 밑으로 내려가면서 사라지는 함수 dropPoke(name, duration, delay);
   if(damage(2,25)){
     dropPoke(header.children[2], 700, 100);
   }
