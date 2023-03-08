@@ -11,7 +11,7 @@ function skillName(nth){
     for(let i = 0; i < 3; i++) {
       let pokeSkillInt = getRandomInt(0, objectSkillPoke.moves.length);
       console.log(pokeSkillInt)
-      pokeSkillArray[i] = objectSkillPoke.moves[pokeSkillInt].move.name;
+      ul.children[i].textContent = objectSkillPoke.moves[pokeSkillInt].move.name;
       // pokeSkillArray.push(objectSkillPoke.moves[pokeSkillInt].move.name);
       console.log(pokeSkillArray);
     }

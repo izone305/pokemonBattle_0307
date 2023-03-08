@@ -37,8 +37,7 @@ ul.style.backgroundColor = "white";
 ul.style.scale = "1.5";
 
 for(let i = 0; i < 3; i++){
-  createEle("li", "", "", pokeSkillArray[i], ul);
-  console.log(pokeSkillArray);
+  createEle("li", "", "", "", ul);
   styleMaker(ul.children[i], "100%", "30%", "", "", "", "", "12pt", "700", "");
 }
 console.dir(ul.children[0]);
