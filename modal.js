@@ -54,21 +54,22 @@ ul.style.backgroundColor = "white";
 ul.style.scale = "1.5";
 
 for(let i = 0; i < skillNum; i++){
-  createEle("li", "", "", pokeSkill[i], ul);
+  createEle("li", "", "", "", ul);
   styleMaker(ul.children[i], "100%", "30%", "", "", "", "", "12pt", "700", "");
+  createEle("span", "", "", pokeSkill[i], ul.children[i]);
   
   //스킬 툴팁 부분 생성
   createEle("span", "", "", "스킬 설명",ul.children[i]);
-  styleMaker(ul.children[i].children[0], "", "", "none", "white","1px solid black", "3px", "10pt", "", "");
+  styleMaker(ul.children[i].children[1], "", "", "none", "white","1px solid black", "3px", "8pt", "", "");
   //툴팁 위치 조정
   if(i === 0){
-    positionMaker(ul.children[i].children[0], "absolute", "-20px", "", "", "");
+    positionMaker(ul.children[i].children[1], "absolute", "-20px", "", "", "");
   }
   else if(i === 1){
-    positionMaker(ul.children[i].children[0], "absolute", "10px", "90px", "", "");
+    positionMaker(ul.children[i].children[1], "absolute", "10px", "90px", "", "");
   }
   else if(i === 2){
-    positionMaker(ul.children[i].children[0], "absolute", "37px", "90px", "", "");
+    positionMaker(ul.children[i].children[1], "absolute", "37px", "90px", "", "");
   }
 }
 //모달창 위치 설정
@@ -106,6 +107,7 @@ function skillThird(){
   // 세번째 스킬 함수 실행
   movePoke(header.children[1], 1000, 150);
   blinkPoke(header.children[2], 200, 250);
+
   // HP 다 떨어지면 밑으로 내려가면서 사라지는 함수 dropPoke(name, duration, delay);
   if(damage(2,25)){
     dropPoke(header.children[2], 700, 100);
@@ -114,14 +116,14 @@ function skillThird(){
   }
 //------------------------------------------------------------------------------
 
-//클릭 이벤트 발생---------------------------------------------------------------
+//click + over 이벤트 발생---------------------------------------------------------------
 for(let i = 0; i < ul.children.length; i++){
   ul.children[i].style.cursor = "pointer";
   ul.children[i].addEventListener('mouseover', function(){
-    ul.children[i].children[0].style.display = "";
+    ul.children[i].children[1].style.display = "";
   });
   ul.children[i].addEventListener('mouseout', function(){
-    ul.children[i].children[0].style.display = "none";
+    ul.children[i].children[1].style.display = "none";
   });
   //스킬에 따라 다른 함수 호출
   if(i === 0){

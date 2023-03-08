@@ -97,10 +97,21 @@
     footer.children[1].children[3].innerHTML = "<h1>도망치다</h1>";
     footer.children[1].children[3].style.textAlign = "center";
 
-    footer.children[0].children[0].style.border = "white";
-    footer.children[0].children[2].style.border = "white";
-    footer.children[1].children[0].style.border = "white";
-    footer.children[1].children[2].style.border = "white";
+
+    for (let i = 0; i < 2; i++) {
+      footer.children[0].children[1].addEventListener('mouseover', function () {
+
+      })
+    }
+
+    //화살표 초기설정
+    footer.children[0].children[0].style.borderBottom = "12px solid transparent";
+    footer.children[0].children[0].style.borderTop = "12px solid transparent";
+
+    footer.children[0].children[0].style.borderLeft = "30px solid black";
+
+    footer.children[0].children[0].style.borderRight = "15px solid transparent";
+    footer.children[0].children[0].style.alignSelf = "center";
 
     // 싸우다 mouseover
     footer.children[0].children[1].addEventListener('mouseover', function () {
@@ -118,7 +129,6 @@
 
     // 가방 mouseover
     footer.children[0].children[3].addEventListener('mouseover', function () {
-      footer.children[0].children[0].style.border = "white";
       footer.children[0].children[2].style.borderBottom = "12px solid transparent";
       footer.children[0].children[2].style.borderTop = "12px solid transparent";
 
@@ -126,14 +136,13 @@
 
       footer.children[0].children[2].style.borderRight = "15px solid transparent";
       footer.children[0].children[2].style.alignSelf = "center";
+      footer.children[0].children[0].style.border = "white";
       footer.children[1].children[0].style.border = "white";
       footer.children[1].children[2].style.border = "white";
     });
 
     // 포켓몬 mouseover
     footer.children[1].children[1].addEventListener('mouseover', function () {
-      footer.children[0].children[0].style.border = "white";
-      footer.children[0].children[2].style.border = "white";
       footer.children[1].children[0].style.borderBottom = "12px solid transparent";
       footer.children[1].children[0].style.borderTop = "12px solid transparent";
 
@@ -141,14 +150,14 @@
 
       footer.children[1].children[0].style.borderRight = "15px solid transparent";
       footer.children[1].children[0].style.alignSelf = "center";
+      footer.children[0].children[0].style.border = "white";
+      footer.children[0].children[2].style.border = "white";
       footer.children[1].children[2].style.border = "white";
     });
 
     // 도망치다 mouseover
     footer.children[1].children[3].addEventListener('mouseover', function () {
-      footer.children[0].children[0].style.border = "white";
-      footer.children[0].children[2].style.border = "white";
-      footer.children[1].children[0].style.border = "white";
+
       footer.children[1].children[2].style.borderBottom = "12px solid transparent";
       footer.children[1].children[2].style.borderTop = "12px solid transparent";
 
@@ -156,12 +165,66 @@
 
       footer.children[1].children[2].style.borderRight = "15px solid transparent";
       footer.children[1].children[2].style.alignSelf = "center";
+      footer.children[0].children[0].style.border = "white";
+      footer.children[0].children[2].style.border = "white";
+      footer.children[1].children[0].style.border = "white";
     });
 
-    // 모달창 띄우기
-    footer.children[0].children[1].addEventListener('click', function() {
-      console.log("click");
+    // 방향키
+    let arr = [0, 0];
+
+    function changeFunc() {
+      footer.children[arr[0]].children[arr[1]].style.borderBottom = "12px solid transparent";
+      footer.children[arr[0]].children[arr[1]].style.borderTop = "12px solid transparent";
+      footer.children[arr[0]].children[arr[1]].style.borderLeft = "30px solid black";
+      footer.children[arr[0]].children[arr[1]].style.borderRight = "15px solid transparent";
+      footer.children[arr[0]].children[arr[1]].style.alignSelf = "center";
+    }
+
+    window.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowRight') {
+        arr[1] = arr[1] + 2;
+        for (let i = 0; i < 2; i++) {
+          footer.children[i].children[0].style.border = "white";
+          footer.children[i].children[2].style.border = "white";
+        }
+        changeFunc();
+      }
+      else if (event.key === 'ArrowLeft') {
+        arr[1] = arr[1] - 2;
+        for (let i = 0; i < 2; i++) {
+          footer.children[i].children[0].style.border = "white";
+          footer.children[i].children[2].style.border = "white";
+        }
+        changeFunc();
+      }
+      else if (event.key === 'ArrowDown') {
+        arr[0]++;
+        for (let i = 0; i < 2; i++) {
+          footer.children[i].children[0].style.border = "white";
+          footer.children[i].children[2].style.border = "white";
+        }
+        changeFunc();
+      }
+      else if (event.key === 'ArrowUp') {
+        arr[0]--;
+        for (let i = 0; i < 2; i++) {
+          footer.children[i].children[0].style.border = "white";
+          footer.children[i].children[2].style.border = "white";
+        }
+        changeFunc();
+      }
+      // Enter를 누르면 모달창 띄우기
+      else if (event.key === 'Enter') {
+        if (arr[0] === 0 && arr[1] === 0) {
+          footer.children[0].children[1].addEventListener('click', function () {
+            console.log("click");
+          })
+        }
+      }
     })
+
+
 
   </script>
 </body>
