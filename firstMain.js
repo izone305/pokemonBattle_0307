@@ -1,5 +1,5 @@
 
-// 코드가 많이 지저분한데 기능구현 끝나면 보기쉽게 정리해놓겠습니다...
+//기능구현 끝나면 보기쉽게 정리해놓겠습니다...
 
 // pokeAPI
 const root = document.getElementById("root");
@@ -53,8 +53,6 @@ function nameCreate(textObj, nth){
   })
 }
 
-
-
 // html 구성
 root.style.height = "88vh";
 root.style.width = "66vh";
@@ -74,15 +72,15 @@ for(let i = 0; i < 4; i++){
 }
 
 header.children[0].style.top = "10px";
-header.children[0].style.left= "10px";
-header.children[1].style.bottom= "10px";
-header.children[1].style.left= "10px";
+header.children[0].style.left= "60px";
+header.children[1].style.bottom= "40px";
+header.children[1].style.left= "30px";
 // 포켓몬 겹칠 때, 위에 오도록 z-index 추가
 header.children[1].style.zIndex= "1";
 header.children[2].style.top= "10px";
-header.children[2].style.right= "10px";
+header.children[2].style.right= "40px";
 header.children[3].style.bottom= "10px";
-header.children[3].style.right= "10px";
+header.children[3].style.right= "50px";
 
 
 let pokeFirstImage = document.createElement("img");
@@ -116,6 +114,12 @@ nameCreate(header.children[0].children[0], pokeSecond);
 nameCreate(header.children[3].children[0], pokeFirst);
 header.children[0].children[0].style.fontSize = "60px";
 header.children[3].children[0].style.fontSize = "60px";
+header.children[0].children[0].style.display = "flex";
+header.children[0].children[0].style.justifyContent = "center";
+header.children[0].children[0].style.alignItems = "end";
+header.children[3].children[0].style.display = "flex";
+header.children[3].children[0].style.justifyContent = "center";
+header.children[3].children[0].style.alignItems = "end";
 
 
 
@@ -140,9 +144,28 @@ header.children[3].children[1].children[0].children[0].children[1].style.width =
 header.children[3].children[1].children[0].children[0].children[0].style.height = "100%";
 header.children[3].children[1].children[0].children[0].children[1].style.height = "100%";
 
+header.children[0].children[1].children[0].children[0].style.border = "5px double black";
+header.children[3].children[1].children[0].children[0].style.border = "5px double black";
+header.children[0].children[1].children[0].children[0].style.borderRadius = "5px";
+header.children[3].children[1].children[0].children[0].style.borderRadius = "5px";
 
-header.children[0].children[1].children[0].children[0].children[0].textContent = "HP";
-header.children[3].children[1].children[0].children[0].children[0].textContent = "HP";
+
+
+header.children[0].children[1].children[0].children[0].children[0].style.backgroundColor = "black";
+header.children[0].children[1].children[0].children[0].children[0].style.color = "white";
+header.children[3].children[1].children[0].children[0].children[0].style.backgroundColor = "black";
+header.children[3].children[1].children[0].children[0].children[0].style.color = "white";
+header.children[0].children[1].children[0].children[0].children[0].style.display = "flex";
+header.children[0].children[1].children[0].children[0].children[0].style.justifyContent = "center";
+header.children[0].children[1].children[0].children[0].children[0].style.alignItems = "center";
+header.children[3].children[1].children[0].children[0].children[0].style.display = "flex";
+
+header.children[3].children[1].children[0].children[0].children[0].style.justifyContent = "center";
+header.children[3].children[1].children[0].children[0].children[0].style.alignItems = "center";
+
+
+header.children[0].children[1].children[0].children[0].children[0].textContent = "HP :";
+header.children[3].children[1].children[0].children[0].children[0].textContent = "HP : ";
 
 header.children[0].children[1].children[0].children[0].children[1].style.backgroundColor = "#10be10";
 header.children[3].children[1].children[0].children[0].children[1].style.backgroundColor = "#10be10";
