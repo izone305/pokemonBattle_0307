@@ -53,6 +53,22 @@ function nameCreate(textObj, nth){
   })
 }
 
+// 스킬명 출력 함수
+function skillName(nth){
+  const skillxhr = new XMLHttpRequest();
+  const _skillURL = `https://pokeapi.co/api/v2/pokemon/${nth}/`;
+  skillxhr.open("GET",_skillURL);
+  skillxhr.send();
+  skillxhr.addEventListener("load",function(){
+    const objectSkillPoke = JSON.parse(skillxhr.response);
+    console.log(objectSkillPoke.moves[21].move.name);
+    console.log(objectSkillPoke.moves[45].move.name);
+    console.log(objectSkillPoke.moves[11].move.name);
+  })
+}
+skillName(25);
+
+
 // html 구성
 root.style.height = "88vh";
 root.style.width = "66vh";
