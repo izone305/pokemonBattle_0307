@@ -136,7 +136,10 @@ footer.children[1].children[3].addEventListener('mouseover', function () {
   footer.children[1].children[2].style.alignSelf = "center";
 });
 
+let modalWarp = footer.nextSibling.nextSibling
+
 // 모달창 띄우기
 footer.children[0].children[1].addEventListener('click', function() {
   console.log("click");
+  modalWarp.style.display = "block";
 })
