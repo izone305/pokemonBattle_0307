@@ -1,5 +1,12 @@
+
+// 코드가 많이 지저분한데 기능구현 끝나면 보기쉽게 정리해놓겠습니다...
+
 // pokeAPI
 const root = document.getElementById("root");
+root.style.borderRadius = "20px";
+root.style.border = "6px double black";
+root.style.position = "relative";
+root.style.top = "50px";
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -52,6 +59,7 @@ for(let i = 0; i < 4; i++){
   div.style.height = "250px";
   header.appendChild(div);
 }
+
 header.children[0].style.top = "10px";
 header.children[0].style.left= "10px";
 header.children[1].style.bottom= "10px";
