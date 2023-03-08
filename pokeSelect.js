@@ -1,5 +1,5 @@
 // pokeSelectWindow()
-
+let pokeSelectFlag = true;
 function pokeMakeTags(howMany, whatString, mather, widthNum){
   for(let i = 0; i <howMany; i ++){
     let tag = document.createElement(whatString);
@@ -19,6 +19,8 @@ function flexSet(obj,direc){
 
 
 function pokeSelectWindow(){
+  pokeSelectFlag = false;
+
   let wholeWindow = window.document.body;
   wholeWindow.style.height = "100vh";
   let pokeWindow = document.createElement("div");
@@ -100,9 +102,11 @@ function pokeSelectWindow(){
       imageCreateBack(pokeFirstImage, pokeSet[cnt]);
       nameCreate(header.children[3].children[0], pokeSet[cnt]);
       skillName(pokeSet[cnt]);
+      pokeSelectFlag = true;
       pokeWindow.remove();
 
     }else if (event.key === 'Enter' && cnt === 6){
+      pokeSelectFlag = true;
       pokeWindow.remove();
     }
     console.log(cnt)
