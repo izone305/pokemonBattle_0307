@@ -172,7 +172,9 @@ footer.children[1].children[1].addEventListener('click', function () {
 
 window.addEventListener('keydown', function (event) {
   if (event.key === 'ArrowRight') {
-    arr[1] = arr[1] + 2;
+    if(arr[1] !== 2) {
+      arr[1] = arr[1] + 2;
+    }
     for (let i = 0; i < 2; i++) {
       footer.children[i].children[0].style.border = "white";
       footer.children[i].children[2].style.border = "white";
@@ -180,7 +182,9 @@ window.addEventListener('keydown', function (event) {
     changeFunc();
   }
   else if (event.key === 'ArrowLeft') {
-    arr[1] = arr[1] - 2;
+    if(arr[1] !== 0) {
+      arr[1] = arr[1] - 2;
+    }
     for (let i = 0; i < 2; i++) {
       footer.children[i].children[0].style.border = "white";
       footer.children[i].children[2].style.border = "white";
@@ -188,7 +192,9 @@ window.addEventListener('keydown', function (event) {
     changeFunc();
   }
   else if (event.key === 'ArrowDown') {
-    arr[0]++;
+    if(arr[0] !== 1) {
+      arr[0]++;
+    }
     for (let i = 0; i < 2; i++) {
       footer.children[i].children[0].style.border = "white";
       footer.children[i].children[2].style.border = "white";
@@ -196,7 +202,9 @@ window.addEventListener('keydown', function (event) {
     changeFunc();
   }
   else if (event.key === 'ArrowUp') {
-    arr[0]--;
+    if(arr[0] !== 0) { 
+      arr[0]--;
+    }
     for (let i = 0; i < 2; i++) {
       footer.children[i].children[0].style.border = "white";
       footer.children[i].children[2].style.border = "white";
