@@ -52,6 +52,7 @@ function moveFunc(){
   movePoke(header.children[1], 1000, 150);
   blinkPoke(header.children[2], 200, 250);
   hplose(header.children[0].children[1].children[0].children[0].children[1])
+  damage(2,25)
 }
 ul.children[0].addEventListener('click', moveFunc);
 
