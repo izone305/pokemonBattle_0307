@@ -54,6 +54,7 @@ function nameCreate(textObj, nth){
 }
 
 // 스킬명 출력
+// 스킬명이 modal.js에서 만들어지는 li의 textContent로 들어가야하는데, 스킬명을 불러오기 전에 이미 li가 만들어져서 데이터 입력이 안되고 있음
 function skillName(nth){
   console.log("func 실행")
   const skillxhr = new XMLHttpRequest();
