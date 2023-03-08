@@ -53,8 +53,6 @@ function nameCreate(textObj, nth){
   })
 }
 
-
-
 // html 구성
 root.style.height = "88vh";
 root.style.width = "66vh";
