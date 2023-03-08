@@ -148,7 +148,6 @@ footer.children[1].children[3].addEventListener('mouseover', function () {
   footer.children[1].children[0].style.border = "white";
 });
 
-<<<<<<< HEAD
 // 방향키
 let arr = [0, 0];
 
@@ -201,12 +200,11 @@ window.addEventListener('keydown', function (event) {
       })
     }
   }
-=======
+})
 let modalWarp = footer.nextSibling.nextSibling
 
 // 모달창 띄우기
 footer.children[0].children[1].addEventListener('click', function() {
   console.log("click");
   modalWarp.style.display = "block";
->>>>>>> 09c7605370104e61fa2c3017d533741060c067c0
 })

@@ -12,7 +12,7 @@ function skillName(nth){
       let pokeSkillInt = getRandomInt(0, objectSkillPoke.moves.length);
       // console.log(objectSkillPoke.moves.length);
       // console.log(pokeSkillInt)
-      ul.children[i].textContent = objectSkillPoke.moves[pokeSkillInt].move.name;
+      ul.children[i].children[0].textContent = objectSkillPoke.moves[pokeSkillInt].move.name;
     }
   })
 }
