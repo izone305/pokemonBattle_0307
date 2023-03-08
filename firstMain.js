@@ -69,6 +69,8 @@ header.children[0].style.top = "10px";
 header.children[0].style.left= "10px";
 header.children[1].style.bottom= "10px";
 header.children[1].style.left= "10px";
+// 포켓몬 겹칠 때, 위에 오도록 z-index 추가
+header.children[1].style.zIndex= "1";
 header.children[2].style.top= "10px";
 header.children[2].style.right= "10px";
 header.children[3].style.bottom= "10px";

@@ -43,6 +43,7 @@ for(let i = 0; i < 3; i++){
 function moveFunc(){
   // 실행
   movePoke(header.children[1], 1000, 150);
+  blinkPoke(header.children[2], 200, 250);
 }
 ul.children[0].addEventListener('click', moveFunc);
 
