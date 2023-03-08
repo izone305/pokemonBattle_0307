@@ -53,20 +53,27 @@ function nameCreate(textObj, nth){
   })
 }
 
-// 스킬명 출력 함수
+// 스킬명 출력
 function skillName(nth){
+  console.log("func 실행")
   const skillxhr = new XMLHttpRequest();
   const _skillURL = `https://pokeapi.co/api/v2/pokemon/${nth}/`;
   skillxhr.open("GET",_skillURL);
   skillxhr.send();
   skillxhr.addEventListener("load",function(){
     const objectSkillPoke = JSON.parse(skillxhr.response);
-    console.log(objectSkillPoke.moves[21].move.name);
-    console.log(objectSkillPoke.moves[45].move.name);
-    console.log(objectSkillPoke.moves[11].move.name);
+    for(let i = 0; i < 3; i++) {
+      let pokeSkillInt = getRandomInt(0, objectSkillPoke.moves.length);
+      console.log(pokeSkillInt)
+      pokeSkillArray[i] = objectSkillPoke.moves[pokeSkillInt].move.name;
+      // pokeSkillArray.push(objectSkillPoke.moves[pokeSkillInt].move.name);
+      console.log(pokeSkillArray);
+    }
   })
 }
-skillName(25);
+const pokeSkillArray = [];
+skillName(pokeFirst);
+console.log(pokeSkillArray);
 
 
 // html 구성

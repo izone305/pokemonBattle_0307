@@ -1,6 +1,6 @@
 
 const btm = document.getElementById('modalWrap');
-const pokeSkill = ["몸통 박치기", "할퀴기", "하품"];
+// const pokeSkill = ["몸통 박치기", "할퀴기", "하품"];
 
 function createEle(elementVal, nameVal, value, textVal, parent){
   const ele = document.createElement(elementVal);
@@ -37,10 +37,12 @@ ul.style.backgroundColor = "white";
 ul.style.scale = "1.5";
 
 for(let i = 0; i < 3; i++){
-  createEle("li", "", "", pokeSkill[i], ul);
+  createEle("li", "", "", pokeSkillArray[i], ul);
+  console.log(pokeSkillArray);
   styleMaker(ul.children[i], "100%", "30%", "", "", "", "", "12pt", "700", "");
-
 }
+console.dir(ul.children[0]);
+
 btm.style.width = "200px"
 btm.style.position = "relative";
 btm.style.top = "-24vh";
@@ -59,4 +61,3 @@ function moveFunc(){
   dropPoke(header.children[2], 700, 550);
 }
 ul.children[0].addEventListener('click', moveFunc);
-
