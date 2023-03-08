@@ -1,5 +1,5 @@
 
-// 코드가 많이 지저분한데 기능구현 끝나면 보기쉽게 정리해놓겠습니다...
+//기능구현 끝나면 보기쉽게 정리해놓겠습니다...
 
 // pokeAPI
 const root = document.getElementById("root");
