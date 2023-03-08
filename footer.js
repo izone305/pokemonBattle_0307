@@ -82,75 +82,89 @@ for (let i = 0; i < 2; i++) {
   })
 }
 
+// 방향키
+let modalWarp = footer.nextSibling.nextSibling
+let arr = [0, 0];
+
+
+
 //화살표 초기설정
-footer.children[0].children[0].style.borderBottom = "12px solid transparent";
-footer.children[0].children[0].style.borderTop = "12px solid transparent";
+changeFunc()
+// footer.children[0].children[0].style.borderBottom = "12px solid transparent";
+// footer.children[0].children[0].style.borderTop = "12px solid transparent";
 
-footer.children[0].children[0].style.borderLeft = "30px solid black";
+// footer.children[0].children[0].style.borderLeft = "30px solid black";
 
-footer.children[0].children[0].style.borderRight = "15px solid transparent";
-footer.children[0].children[0].style.alignSelf = "center";
+// footer.children[0].children[0].style.borderRight = "15px solid transparent";
+// footer.children[0].children[0].style.alignSelf = "center";
 
 // 싸우다 mouseover
 footer.children[0].children[1].addEventListener('mouseover', function () {
-  footer.children[0].children[0].style.borderBottom = "12px solid transparent";
-  footer.children[0].children[0].style.borderTop = "12px solid transparent";
+  arr = [0, 0];
+  clearFunc();
+  changeFunc();
+  // footer.children[0].children[0].style.borderBottom = "12px solid transparent";
+  // footer.children[0].children[0].style.borderTop = "12px solid transparent";
 
-  footer.children[0].children[0].style.borderLeft = "30px solid black";
+  // footer.children[0].children[0].style.borderLeft = "30px solid black";
 
-  footer.children[0].children[0].style.borderRight = "15px solid transparent";
-  footer.children[0].children[0].style.alignSelf = "center";
-  footer.children[0].children[2].style.border = "white";
-  footer.children[1].children[0].style.border = "white";
-  footer.children[1].children[2].style.border = "white";
+  // footer.children[0].children[0].style.borderRight = "15px solid transparent";
+  // footer.children[0].children[0].style.alignSelf = "center";
+  // footer.children[0].children[2].style.border = "white";
+  // footer.children[1].children[0].style.border = "white";
+  // footer.children[1].children[2].style.border = "white";
 });
 
 // 가방 mouseover
 footer.children[0].children[3].addEventListener('mouseover', function () {
-  footer.children[0].children[2].style.borderBottom = "12px solid transparent";
-  footer.children[0].children[2].style.borderTop = "12px solid transparent";
+  arr = [0, 2];
+  clearFunc();
+  changeFunc();
+  // footer.children[0].children[2].style.borderBottom = "12px solid transparent";
+  // footer.children[0].children[2].style.borderTop = "12px solid transparent";
 
-  footer.children[0].children[2].style.borderLeft = "30px solid black";
+  // footer.children[0].children[2].style.borderLeft = "30px solid black";
 
-  footer.children[0].children[2].style.borderRight = "15px solid transparent";
-  footer.children[0].children[2].style.alignSelf = "center";
-  footer.children[0].children[0].style.border = "white";
-  footer.children[1].children[0].style.border = "white";
-  footer.children[1].children[2].style.border = "white";
+  // footer.children[0].children[2].style.borderRight = "15px solid transparent";
+  // footer.children[0].children[2].style.alignSelf = "center";
+  // footer.children[0].children[0].style.border = "white";
+  // footer.children[1].children[0].style.border = "white";
+  // footer.children[1].children[2].style.border = "white";
 });
 
 // 포켓몬 mouseover
 footer.children[1].children[1].addEventListener('mouseover', function () {
-  footer.children[1].children[0].style.borderBottom = "12px solid transparent";
-  footer.children[1].children[0].style.borderTop = "12px solid transparent";
+  arr = [1, 0];
+  clearFunc();
+  changeFunc();
+  // footer.children[1].children[0].style.borderBottom = "12px solid transparent";
+  // footer.children[1].children[0].style.borderTop = "12px solid transparent";
 
-  footer.children[1].children[0].style.borderLeft = "30px solid black";
+  // footer.children[1].children[0].style.borderLeft = "30px solid black";
 
-  footer.children[1].children[0].style.borderRight = "15px solid transparent";
-  footer.children[1].children[0].style.alignSelf = "center";
-  footer.children[0].children[0].style.border = "white";
-  footer.children[0].children[2].style.border = "white";
-  footer.children[1].children[2].style.border = "white";
+  // footer.children[1].children[0].style.borderRight = "15px solid transparent";
+  // footer.children[1].children[0].style.alignSelf = "center";
+  // footer.children[0].children[0].style.border = "white";
+  // footer.children[0].children[2].style.border = "white";
+  // footer.children[1].children[2].style.border = "white";
 });
 
 // 도망치다 mouseover
 footer.children[1].children[3].addEventListener('mouseover', function () {
+  arr = [1, 2];
+  clearFunc();
+  changeFunc();
+  // footer.children[1].children[2].style.borderBottom = "12px solid transparent";
+  // footer.children[1].children[2].style.borderTop = "12px solid transparent";
 
-  footer.children[1].children[2].style.borderBottom = "12px solid transparent";
-  footer.children[1].children[2].style.borderTop = "12px solid transparent";
+  // footer.children[1].children[2].style.borderLeft = "30px solid black";
 
-  footer.children[1].children[2].style.borderLeft = "30px solid black";
-
-  footer.children[1].children[2].style.borderRight = "15px solid transparent";
-  footer.children[1].children[2].style.alignSelf = "center";
-  footer.children[0].children[0].style.border = "white";
-  footer.children[0].children[2].style.border = "white";
-  footer.children[1].children[0].style.border = "white";
+  // footer.children[1].children[2].style.borderRight = "15px solid transparent";
+  // footer.children[1].children[2].style.alignSelf = "center";
+  // footer.children[0].children[0].style.border = "white";
+  // footer.children[0].children[2].style.border = "white";
+  // footer.children[1].children[0].style.border = "white";
 });
-
-// 방향키
-let modalWarp = footer.nextSibling.nextSibling
-let arr = [0, 0];
 
 function changeFunc() {
   footer.children[arr[0]].children[arr[1]].style.borderBottom = "12px solid transparent";
@@ -158,6 +172,13 @@ function changeFunc() {
   footer.children[arr[0]].children[arr[1]].style.borderLeft = "30px solid black";
   footer.children[arr[0]].children[arr[1]].style.borderRight = "15px solid transparent";
   footer.children[arr[0]].children[arr[1]].style.alignSelf = "center";
+}
+
+function clearFunc() {
+  for (let i = 0; i < 2; i++) {
+    footer.children[i].children[0].style.border = "white";
+    footer.children[i].children[2].style.border = "white";
+  }
 }
 
 footer.children[0].children[1].addEventListener('click', function () {
@@ -175,40 +196,44 @@ window.addEventListener('keydown', function (event) {
     if(arr[1] !== 2) {
       arr[1] = arr[1] + 2;
     }
-    for (let i = 0; i < 2; i++) {
-      footer.children[i].children[0].style.border = "white";
-      footer.children[i].children[2].style.border = "white";
-    }
+    // for (let i = 0; i < 2; i++) {
+    //   footer.children[i].children[0].style.border = "white";
+    //   footer.children[i].children[2].style.border = "white";
+    // }
+    clearFunc();
     changeFunc();
   }
   else if (event.key === 'ArrowLeft') {
     if(arr[1] !== 0) {
       arr[1] = arr[1] - 2;
     }
-    for (let i = 0; i < 2; i++) {
-      footer.children[i].children[0].style.border = "white";
-      footer.children[i].children[2].style.border = "white";
-    }
+    // for (let i = 0; i < 2; i++) {
+    //   footer.children[i].children[0].style.border = "white";
+    //   footer.children[i].children[2].style.border = "white";
+    // }
+    clearFunc()
     changeFunc();
   }
   else if (event.key === 'ArrowDown') {
     if(arr[0] !== 1) {
       arr[0]++;
     }
-    for (let i = 0; i < 2; i++) {
-      footer.children[i].children[0].style.border = "white";
-      footer.children[i].children[2].style.border = "white";
-    }
+    // for (let i = 0; i < 2; i++) {
+    //   footer.children[i].children[0].style.border = "white";
+    //   footer.children[i].children[2].style.border = "white";
+    // }
+    clearFunc();
     changeFunc();
   }
   else if (event.key === 'ArrowUp') {
     if(arr[0] !== 0) { 
       arr[0]--;
     }
-    for (let i = 0; i < 2; i++) {
-      footer.children[i].children[0].style.border = "white";
-      footer.children[i].children[2].style.border = "white";
-    }
+    // for (let i = 0; i < 2; i++) {
+    //   footer.children[i].children[0].style.border = "white";
+    //   footer.children[i].children[2].style.border = "white";
+    // }
+    clearFunc();
     changeFunc();
   }
 
