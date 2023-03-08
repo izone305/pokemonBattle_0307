@@ -14,15 +14,28 @@ function movePoke(name, time, delay) {
 
 function blinkPoke(name, time, delay) {
   name.animate([
-    {opacity: "1"},
-    {opacity: "0"},
-    {opacity: "1"},
-    {opacity: "0"},
-    {opacity: "1"},
+    {opacity: 1},
+    {opacity: 0},
+    {opacity: 1},
+    {opacity: 0},
+    {opacity: 1},
   ], {
     duration: time,
     delay: delay,
   });
 }
+
+function dropPoke(name, time, delay) {
+  console.log("test");
+  name.animate([
+    {opacity: 1, transform: "translate(0, 0)"},
+    {opacity: 0, transform: "translate(0, 25%)"},
+  ], {
+    duration: time,
+    delay: delay,
+    fill: "forwards",
+  });
+}
+
 
 
