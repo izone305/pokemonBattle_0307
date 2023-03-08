@@ -148,8 +148,8 @@ footer.children[1].children[3].addEventListener('mouseover', function () {
   footer.children[1].children[0].style.border = "white";
 });
 
-<<<<<<< HEAD
 // 방향키
+let modalWarp = footer.nextSibling.nextSibling
 let arr = [0, 0];
 
 function changeFunc() {
@@ -193,20 +193,14 @@ window.addEventListener('keydown', function (event) {
     }
     changeFunc();
   }
+
   // Enter를 누르면 모달창 띄우기
   else if (event.key === 'Enter') {
     if (arr[0] === 0 && arr[1] === 0) {
       footer.children[0].children[1].addEventListener('click', function () {
         console.log("click");
+        modalWarp.style.display = "block";
       })
     }
   }
-=======
-let modalWarp = footer.nextSibling.nextSibling
-
-// 모달창 띄우기
-footer.children[0].children[1].addEventListener('click', function() {
-  console.log("click");
-  modalWarp.style.display = "block";
->>>>>>> 09c7605370104e61fa2c3017d533741060c067c0
 })
