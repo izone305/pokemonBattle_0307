@@ -63,6 +63,7 @@ function pokeSelectWindow(){
   pokeWindow.children[6].textContent = "그만두다"
   pokeWindow.children[6].style.fontSize = "30px";
   pokeWindow.children[6].style.paddingLeft = "30px";
+  pokeWindow.children[6].style.cursor = "pointer";
   console.log(pokeSet)
   for(let i =0 ; i <6;i++){
     imageCreate(pokeWindow.children[i].children[0].children[0].children[0],pokeSet[i]);
@@ -71,7 +72,9 @@ function pokeSelectWindow(){
     pokeWindow.children[i].children[0].children[1].style.fontSize = "20px";
 
   }
-
+  pokeWindow.children[6].addEventListener("click",()=>{
+    pokeWindow.remove()
+  });
 
 }
 
