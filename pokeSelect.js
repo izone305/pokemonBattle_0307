@@ -99,6 +99,7 @@ function pokeSelectWindow(){
     }else if (event.key === 'Enter' && cnt < 6){
       imageCreateBack(pokeFirstImage, pokeSet[cnt]);
       nameCreate(header.children[3].children[0], pokeSet[cnt]);
+      skillName(pokeSet[cnt]);
       pokeWindow.remove();
 
     }else if (event.key === 'Enter' && cnt === 6){

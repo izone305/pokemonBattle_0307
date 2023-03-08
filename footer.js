@@ -218,7 +218,8 @@ window.addEventListener('keydown', function (event) {
       console.log("click");
       modalWarp.style.display = "block";
     }else if(arr[0] === 1 && arr[1] === 0){
-      pokeSelectWindow()
+      // pokeSelectWindow()
+
     }
   }
 })
