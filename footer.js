@@ -235,18 +235,11 @@ window.addEventListener('keydown', function (event) {
   // Enter를 누르면 모달창 띄우기
   else if (event.key === 'Enter') {
     if (arr[0] === 0 && arr[1] === 0) {
-<<<<<<< HEAD
-      footer.children[0].children[1].addEventListener('click', function () {
-        console.log("click");
-        modalWarp.style.display = "block";
-      })
-=======
       console.log("click");
       modalWarp.style.display = "block";
     }else if(arr[0] === 1 && arr[1] === 0 && pokeSelectFlag){
       // pokeSelectWindow();
       // pokeSelectFlag = false;
->>>>>>> main
     }
   }
 })

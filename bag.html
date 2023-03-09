@@ -23,7 +23,6 @@
     bagObject.style.margin = "auto";
     bagObject.style.zIndex = "2";
     bagObject.style.padding = "15px";
-    
     let title = document.createElement("div");
     bagObject.appendChild(title);
     title.innerHTML = "가방";
@@ -32,25 +31,29 @@
       target.style.display = "flex";
       target.style.flexDirection = d;
       target.style.alignItems = "center";
-      target.style.justifyContent = "space-evenly";
     }
 
-    for (let i = 1; i < 5; i++) {
-      let objWrap = document.createElement("div");
-      bagObject.appendChild(objWrap);
-      objWrap.style.border = "1px solid red";
-      objWrap.style.width = "80%";
-      objWrap.style.height = "20%";
-      flexSet(bagObject.children[i], "row");
-      for (let j = 0; j < 4; j++) {
-        let obj = document.createElement("div");
-        objWrap.appendChild(obj);
-        obj.style.border = "1px solid red";
-        obj.style.width = "20%";
-        obj.style.height = "60%";
-      }
+
+    let menuWrap = document.createElement("div");
+    bagObject.appendChild(menuWrap);
+    menuWrap.style.border = "1px solid red";
+    menuWrap.style.width = "90%";
+    menuWrap.style.height = "10%";
+    bagObject.children[1].style.justifyContent = "space-evenly";
+    flexSet(bagObject.children[1], "row");
+    for (let i = 0; i < 4; i++) {
+      let bagMenu = document.createElement("div");
+      menuWrap.appendChild(bagMenu);
+      bagMenu.style.border = "1px solid red";
+      bagMenu.style.width = "24%";
+      bagMenu.style.height = "60%";
     }
     flexSet(bagObject, "column");
+
+    for (let i = 0; i < 4; i++) {
+      let itemWrap = document.createElement("div");
+      bagObject.appendChild(itemWrap);
+    }
   </script>
 </body>
 
