@@ -13,5 +13,4 @@ function bagSelectWindow() {
   bagObject.style.margin = "auto";
   bagObject.style.zIndex = "2";
   bagObject.style.padding = "15px";
-  bagObject.innerText = "dsllkjdslfkj";
 }
