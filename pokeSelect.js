@@ -1,5 +1,5 @@
 // pokeSelectWindow()
-
+let pokeSelectFlag = true;
 function pokeMakeTags(howMany, whatString, mather, widthNum){
   for(let i = 0; i <howMany; i ++){
     let tag = document.createElement(whatString);
@@ -19,7 +19,10 @@ function flexSet(obj,direc){
 
 
 function pokeSelectWindow(){
+  pokeSelectFlag = false;
+
   let wholeWindow = window.document.body;
+  wholeWindow.style.height = "100vh";
   let pokeWindow = document.createElement("div");
   pokeWindow.id = "pokeWindow"
   wholeWindow.appendChild(pokeWindow);
@@ -64,7 +67,6 @@ function pokeSelectWindow(){
   pokeWindow.children[6].style.fontSize = "30px";
   pokeWindow.children[6].style.paddingLeft = "30px";
   pokeWindow.children[6].style.cursor = "pointer";
-  console.log(pokeSet)
   for(let i =0 ; i <6;i++){
     imageCreate(pokeWindow.children[i].children[0].children[0].children[0],pokeSet[i]);
     nameCreate(pokeWindow.children[i].children[0].children[1], pokeSet[i]);
@@ -72,6 +74,54 @@ function pokeSelectWindow(){
     pokeWindow.children[i].children[0].children[1].style.fontSize = "20px";
 
   }
+  let arrowWrap = document.createElement("div");
+  pokeWindow.children[0].prepend(arrowWrap);
+  arrowWrap.style.width = "50px";
+  arrowWrap.style.height = "100%";
+  arrowWrap.style.position= "relative";
+  arrowWrap.style.overflow = "hidden";
+  let arrow = document.createElement("div");
+  arrowWrap.appendChild(arrow);
+  arrow.style.width = "50px";
+  arrow.style.height = "50%";
+  arrow.style.position = "relative";
+  arrow.style.backgroundColor = "black";
+  arrow.style.rotate="45deg";
+  arrow.style.left = "-35px";
+  arrow.style.top = "25px";
+
+  let cnt = 0;
+  window.addEventListener('keydown', function (event) {
+    if (event.key === 'ArrowDown' && cnt < 6){
+      cnt ++;
+      pokeWindow.children[cnt].prepend(arrowWrap);
+    }else if (event.key === 'ArrowUp' && cnt > 0){
+      cnt --;
+      pokeWindow.children[cnt].prepend(arrowWrap);
+    }
+    else if (event.key === 'Enter' && cnt < 6){
+      imageCreateBack(pokeFirstImage, pokeSet[cnt]);
+      nameCreate(header.children[3].children[0], pokeSet[cnt]);
+      skillName(pokeSet[cnt]);
+      pokeSelectFlag = true;
+      pokeWindow.remove();
+
+    }else if (event.key === 'Enter' && cnt === 6){
+      pokeSelectFlag = true;
+      pokeWindow.remove();
+    }
+    console.log(cnt)
+  })
+
+
+
+
+
+
+
+
+
+
   pokeWindow.children[6].addEventListener("click",()=>{
     pokeWindow.remove()
   });

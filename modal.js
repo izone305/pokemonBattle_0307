@@ -1,6 +1,6 @@
 //----기본 셋팅--------------------------------------------------
 const btm = document.getElementById('modalWrap');
-const pokeSkill = ["몸통 박치기", "할퀴기", "하품"];
+//const pokeSkill = ["몸통 박치기", "할퀴기", "하품"];
 const skillNum = 3; //스킬 개수 정하기
 //---------------------------------------------------------------
 
@@ -56,20 +56,20 @@ ul.style.scale = "1.5";
 for(let i = 0; i < skillNum; i++){
   createEle("li", "", "", "", ul);
   styleMaker(ul.children[i], "100%", "30%", "", "", "", "", "12pt", "700", "");
-  createEle("span", "", "", pokeSkill[i], ul.children[i]);
+  createEle("span", "", "", "", ul.children[i]);
   
   //스킬 툴팁 부분 생성
-  createEle("span", "", "", "스킬 설명",ul.children[i]);
-  styleMaker(ul.children[i].children[1], "", "", "none", "white","1px solid black", "3px", "8pt", "", "");
+  createEle("span", "", "", "",ul.children[i]);
+  styleMaker(ul.children[i].children[1], "70%", "", "none", "white","1px solid black", "3px", "8pt", "", "");
   //툴팁 위치 조정
   if(i === 0){
-    positionMaker(ul.children[i].children[1], "absolute", "-20px", "", "", "");
+    positionMaker(ul.children[i].children[1], "absolute", "-20px", "100px", "", "");
   }
   else if(i === 1){
-    positionMaker(ul.children[i].children[1], "absolute", "10px", "90px", "", "");
+    positionMaker(ul.children[i].children[1], "absolute", "10px", "100px", "", "");
   }
   else if(i === 2){
-    positionMaker(ul.children[i].children[1], "absolute", "37px", "90px", "", "");
+    positionMaker(ul.children[i].children[1], "absolute", "37px", "100px", "", "");
   }
 }
 //모달창 위치 설정
