@@ -1,5 +1,6 @@
 // pokeSelectWindow()
-let pokeSelectFlag = true;
+let pokeSelectonWindow = true;
+console.log(pokeSelectonWindow);
 function pokeMakeTags(howMany, whatString, mather, widthNum){
   for(let i = 0; i <howMany; i ++){
     let tag = document.createElement(whatString);
@@ -19,7 +20,7 @@ function flexSet(obj,direc){
 
 
 function pokeSelectWindow(){
-  pokeSelectFlag = false;
+  pokeSelectonWindow = false;
 
   let wholeWindow = window.document.body;
   wholeWindow.style.height = "100vh";
@@ -91,7 +92,11 @@ function pokeSelectWindow(){
   arrow.style.top = "25px";
 
   let cnt = 0;
-  window.addEventListener('keydown', function (event) {
+  console.log(pokeSelectonWindow);
+
+
+  window.addEventListener('keydown', function pokeSelectActive(event) {
+    event.stopPropagation();
     if (event.key === 'ArrowDown' && cnt < 6){
       cnt ++;
       pokeWindow.children[cnt].prepend(arrowWrap);
@@ -102,15 +107,24 @@ function pokeSelectWindow(){
       imageCreateBack(pokeFirstImage, pokeSet[cnt]);
       nameCreate(header.children[3].children[0], pokeSet[cnt]);
       skillName(pokeSet[cnt]);
-      pokeSelectFlag = true;
+      console.log(pokeSelectonWindow);
+      
       pokeWindow.remove();
-
+      pokeSelectonWindow = true;
+      window.removeEventListener('keydown',pokeSelectActive);
+      return;
     }else if (event.key === 'Enter' && cnt === 6){
-      pokeSelectFlag = true;
+      console.log(pokeSelectonWindow);
       pokeWindow.remove();
+      pokeSelectonWindow = true;
+      window.removeEventListener('keydown',pokeSelectActive);
+      return;
     }
     console.log(cnt)
-  })
+    }
+    
+  )
+
 
 
 
@@ -122,7 +136,10 @@ function pokeSelectWindow(){
 
 
   pokeWindow.children[6].addEventListener("click",()=>{
+    pokeSelectonWindow = false;
     pokeWindow.remove()
+    console.log(pokeSelectonWindow);
+
   });
 
 }

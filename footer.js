@@ -242,9 +242,8 @@ window.addEventListener('keydown', function (event) {
     if (arr[0] === 0 && arr[1] === 0) {
       console.log("click");
       modalWarp.style.display = "block";
-    }else if(arr[0] === 1 && arr[1] === 0 && pokeSelectFlag){
-      // pokeSelectWindow();
-      // pokeSelectFlag = false;
+    }else if(arr[0] === 1 && arr[1] === 0 && pokeSelectonWindow){
+      pokeSelectWindow();
     }
   }
 })
