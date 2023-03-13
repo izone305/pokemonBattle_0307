@@ -12,12 +12,19 @@ function movePokeBackAttack(name, time, delay) {
 }
 
 function backAttack(time){
+  // let body = window.document.body;
+  // for(let i = 0; i < body.children.length;i++){
+  //   body.children[i].style.cursor = "none";
+  // }
   let timing = time + getRandomInt(0, 200)
   let attackTime =  setTimeout(()=>{
     console.log("back Attack")
     movePokeBackAttack(header.children[2], 1000, 150);
     blinkPoke(header.children[1], 200, 250);
     damage(1,25)
+    // for(let i = 0; i < body.children.length;i++){
+    //   body.children[i].style.cursor = "default";
+    // }
   },timing);
   return  attackTime;
 }
