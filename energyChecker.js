@@ -1,4 +1,10 @@
 let pokeEnergy = [100,100];
+for(let i = 0;i < pokeSet.length - 1;i++){
+  pokeEnergy.push(100);
+}
+console.log(pokeEnergy);
+// pokeEnergy는 포켓몬들의 hp를 나타내는 array입니다
+// [내 첫번째 포켓몬hp, 적 포켓몬hp, 내 n번째 포켓몬 hp, ...]
 
 
 function youDied(energyAmount){
