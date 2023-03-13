@@ -17,6 +17,7 @@ let pokeFirst = getRandomInt(1, 152);
 let pokeSecond = getRandomInt(1, 152);
 let pokeSet = [pokeFirst, getRandomInt(1, 152),getRandomInt(1, 152),getRandomInt(1, 152),getRandomInt(1, 152),getRandomInt(1, 152)]
 
+
 function imageCreate(imageObj, nth){
   const pokeimage = imageObj;
   const xhr = new XMLHttpRequest();

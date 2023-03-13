@@ -94,6 +94,8 @@ function skillFirst(){
   if(damage(2,25)){
     dropPoke(header.children[2], 700, 100);
     clearTimeout(backAttackTime);
+    cursorDefault();
+
   //상대가 죽으면 예정되어있던 반격 효과를 취소한다
 
     return;
@@ -111,6 +113,7 @@ function skillSecond(){
   if(damage(2,25)){
     dropPoke(header.children[2], 700, 100);
     clearTimeout(backAttackTime);
+    cursorDefault();
   //상대가 죽으면 예정되어있던 반격 효과를 취소한다
 
     return;
@@ -129,6 +132,8 @@ function skillThird(){
   if(damage(2,25)){
     dropPoke(header.children[2], 700, 100);
     clearTimeout(backAttackTime);
+    cursorDefault();
+
   //상대가 죽으면 예정되어있던 반격 효과를 취소한다
 
     return;
