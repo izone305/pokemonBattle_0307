@@ -87,9 +87,18 @@ function skillFirst(){
   // 첫번째 스킬 함수 실행
   movePoke(header.children[1], 1000, 150);
   blinkPoke(header.children[2], 200, 250);
+  let backAttackTime = backAttack(1900);
+  //상대 공격 늦게 시작하는 시간 차이를 변수로 줄 수 있다
+  
   // HP 다 떨어지면 밑으로 내려가면서 사라지는 함수 dropPoke(name, duration, delay);
   if(damage(2,25)){
     dropPoke(header.children[2], 700, 100);
+    clearTimeout(backAttackTime);
+    cursorDefault();
+
+  //상대가 죽으면 예정되어있던 반격 효과를 취소한다
+
+    return;
   }
   btm.style.display = "none";
 }
@@ -97,20 +106,37 @@ function skillSecond(){
   // 두번째 스킬 함수 실행
   movePoke(header.children[1], 1000, 150);
   blinkPoke(header.children[2], 200, 250);
+  let backAttackTime = backAttack(1900);
+  //상대 공격 늦게 시작하는 시간 차이를 변수로 줄 수 있다
+
   // HP 다 떨어지면 밑으로 내려가면서 사라지는 함수 dropPoke(name, duration, delay);
   if(damage(2,25)){
     dropPoke(header.children[2], 700, 100);
+    clearTimeout(backAttackTime);
+    cursorDefault();
+  //상대가 죽으면 예정되어있던 반격 효과를 취소한다
+
+    return;
   }
     btm.style.display = "none";
 }
 function skillThird(){
   // 세번째 스킬 함수 실행
+  let backAttackTime = backAttack(1900);
+  //상대 공격 늦게 시작하는 시간 차이를 변수로 줄 수 있다
+
   movePoke(header.children[1], 1000, 150);
   blinkPoke(header.children[2], 200, 250);
 
   // HP 다 떨어지면 밑으로 내려가면서 사라지는 함수 dropPoke(name, duration, delay);
   if(damage(2,25)){
     dropPoke(header.children[2], 700, 100);
+    clearTimeout(backAttackTime);
+    cursorDefault();
+
+  //상대가 죽으면 예정되어있던 반격 효과를 취소한다
+
+    return;
   }
     btm.style.display = "none";
   }
