@@ -1,6 +1,6 @@
 const http = require('http');
 const fs = require("fs");
-const pokemon = require('pokemon')
+//const pokemon = require('pokemon')
 
 const server = http.createServer(function(request, response){
   // 최초접속
