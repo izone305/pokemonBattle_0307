@@ -8,14 +8,6 @@ root.style.border = "6px double black";
 root.style.position = "relative";
 root.style.top = "50px";
 
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min);
-}
-let pokeFirst = getRandomInt(1, 152);
-let pokeSecond = getRandomInt(1, 152);
-let pokeSet = [pokeFirst, getRandomInt(1, 152),getRandomInt(1, 152),getRandomInt(1, 152),getRandomInt(1, 152),getRandomInt(1, 152)]
 
 
 function imageCreate(imageObj, nth){
