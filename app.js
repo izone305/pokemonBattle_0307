@@ -20,10 +20,24 @@ const server = http.createServer(function(request, response){
     console.log("이미지 요청");
   }
   if(request.method === 'GET' && request.url.startsWith('/')) {
-    item
+    
   }
   if(request.method === 'GET' && request.url.startsWith('/item')) {
-    
+    if(request.url.split('/').length === 2 ){
+      fs.readFile("pokeitem/bag.html", function(err, data){
+        response.writeHead(200);
+        response.write(data);
+        response.end();
+      })
+    }
+    if(request.url.split('/').length === 3 ){}
+      if(request.url.split('/')[2] === "bag.js"){
+        fs.readFile("pokeitem/bag.js", function(err, data){
+          response.writeHead(200);
+          response.write(data);
+          response.end();
+        })
+      }
   }
   if(request.method === 'GET' && request.url.startsWith('/select')){
     if(request.url.split('/').length === 2 ){

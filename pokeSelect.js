@@ -146,5 +146,5 @@ function pokeSelectWindow(){
 }
 
 
-pokeSelectWindow();
+// pokeSelectWindow();
 

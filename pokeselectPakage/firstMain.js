@@ -13,7 +13,7 @@ root.style.top = "50px";
 function imageCreate(imageObj, nth){
   const pokeimage = imageObj;
   const xhr = new XMLHttpRequest();
-  const _URL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${nth}.png`;
+  const _URL = `http://localhost:305/pokeImg?nth=${nth}`;
   xhr.open("GET",_URL);
   xhr.responseType = 'blob';
   xhr.send();
