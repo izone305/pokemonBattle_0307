@@ -13,8 +13,6 @@ const server = http.createServer(function(request, response){
       response.writeHead(200);
       response.write(data);
       response.end();
-
-
     })
       
     console.log("이미지 요청");
@@ -25,11 +23,44 @@ const server = http.createServer(function(request, response){
   if(request.method === 'GET' && request.url.startsWith('/login')) {
 
   }
-  if(request.method === 'GET' && request.url.startsWith('/login')) {
-
+  if(request.method === 'GET' && request.url.startsWith('/select')){
+    if(request.url.split('/').length === 2 ){
+      fs.readFile("pokeselectPakage/pokeSelectMain.html", function(err, data){
+        response.writeHead(200);
+        response.write(data);
+        response.end();
+      })
+    }
+    if(request.url.split('/').length === 3 ){}
+      if(request.url.split('/')[2] === "commonFunc.js"){
+        fs.readFile("pokeselectPakage/commonFunc.js", function(err, data){
+          response.writeHead(200);
+          response.write(data);
+          response.end();
+        })
+      }
+      else if(request.url.split('/')[2] === "firstMain.js"){
+        fs.readFile("pokeselectPakage/firstMain.js", function(err, data){
+          response.writeHead(200);
+          response.write(data);
+          response.end();
+        })
+      }else if(request.url.split('/')[2] === "energyChecker.js"){
+        fs.readFile("pokeselectPakage/energyChecker.js", function(err, data){
+          response.writeHead(200);
+          response.write(data);
+          response.end();
+        })
+      }else if(request.url.split('/')[2] === "pokeSelect.js"){
+        fs.readFile("pokeselectPakage/pokeSelect.js", function(err, data){
+          response.writeHead(200);
+          response.write(data);
+          response.end();
+        })
+      }
   }
   if(request.method === 'GET' && request.url.startsWith('/login')) {
-
+    response.write()
   }
     
 
