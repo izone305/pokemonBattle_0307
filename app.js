@@ -19,8 +19,7 @@ const server = http.createServer(function(request, response){
       
     console.log("이미지 요청");
   }
-  if(request.method === 'GET' && request.url.startsWith('/login')) {
-
+  if(request.method === 'GET' && request.url.startsWith('/battle')) {
   }
   if(request.method === 'GET' && request.url.startsWith('/login')) {
 
