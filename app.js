@@ -8,13 +8,12 @@ const server = http.createServer(function(request, response){
   //로그인 페이지
   }
   // 무언가
-  if(request.method === 'GET' && request.url.startsWith('/pokeImg')){
-    fs.readFile(`./node_modules/pokemon-sprites/sprites/pokemon/${pp}.png`, function(err, data){
+  if(request.method === 'GET' && request.url.startsWith('/pokeImg?nth=')){
+    let nth = request.url.split("=")[1]
+    fs.readFile(`./graphics/pokemon/${nth}.png`, function(err, data){
       response.writeHead(200);
       response.write(data);
       response.end();
-
-
     })
       
     console.log("이미지 요청");
