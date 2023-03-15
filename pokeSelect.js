@@ -1,4 +1,4 @@
-// pokeSelectWindow()
+
 
 let pokeSelectonWindow = true;
 console.log(pokeSelectonWindow);
@@ -146,5 +146,5 @@ function pokeSelectWindow(){
 }
 
 
-
+pokeSelectWindow();
 
