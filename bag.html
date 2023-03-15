@@ -27,33 +27,115 @@
     bagObject.appendChild(title);
     title.innerHTML = "가방";
 
-    function flexSet(target, d) {
+    function styleSet(target, w, h, b) {
+      target.style.width = w;
+      target.style.height = h;
+      target.style.border = b;
+    }
+
+    function flexSet(target, d, justy) {
       target.style.display = "flex";
       target.style.flexDirection = d;
       target.style.alignItems = "center";
+      target.style.justifyContent = justy;
+    }
+
+    function menuSelect(target) {
+      for(let i = 0; i < 4; i++) {
+        menu[i].style.display = 'none';
+      }
+      flexSet(menu[target], 'column');
     }
 
 
     let menuWrap = document.createElement("div");
     bagObject.appendChild(menuWrap);
-    menuWrap.style.border = "1px solid red";
-    menuWrap.style.width = "90%";
-    menuWrap.style.height = "10%";
+    styleSet(menuWrap, '90%', '10%', '1px solid red');
     bagObject.children[1].style.justifyContent = "space-evenly";
-    flexSet(bagObject.children[1], "row");
-    for (let i = 0; i < 4; i++) {
-      let bagMenu = document.createElement("div");
-      menuWrap.appendChild(bagMenu);
-      bagMenu.style.border = "1px solid red";
-      bagMenu.style.width = "24%";
-      bagMenu.style.height = "60%";
-    }
-    flexSet(bagObject, "column");
+    flexSet(bagObject.children[1], "row",);
+
+    let bagMenu = [];
 
     for (let i = 0; i < 4; i++) {
-      let itemWrap = document.createElement("div");
-      bagObject.appendChild(itemWrap);
+      bagMenu[i] = document.createElement("div");
+      menuWrap.appendChild(bagMenu[i]);
+      styleSet(bagMenu[i], '24%', '70%', '1px solid red');
     }
+
+    flexSet(bagObject, "column", '');
+
+    for (let i = 0; i < 4; i++) {
+      let menuElement = document.createElement("div");
+      bagObject.appendChild(menuElement);
+    }
+
+    let itemWrap = document.createElement("div");
+    bagObject.appendChild(itemWrap);
+    styleSet(itemWrap, '90%', '80%', '1px solid red');
+
+    let menu = [];
+    let list = [];
+
+    // menu는 해당 버튼당 생기는 div
+    // list는 div안에 생기는 list div
+    for(let i = 0; i < 4; i++) {
+      menu[i] = document.createElement('div');
+      itemWrap.appendChild(menu[i]);
+      styleSet(menu[i], '100%', '100%', '1px solid red');
+      flexSet(menu[i], 'column', 'space-evenly');
+      for(let j = 0; j < 6; j++) {
+        list[j] = document.createElement('div');
+        menu[i].appendChild(list[j]);
+        styleSet(list[j], '90%', '15%', '1px solid red');
+      }
+    }
+
+    
+
+    menuSelect(0);
+
+    for(let i = 0; i < 4; i++) {
+      bagMenu[i].addEventListener('click', function() {
+        menuSelect(i);
+      });
+    }
+
+
+    // itemList
+    let healing = ["potion", "super-potion", "max-potion", "fresh-water", "lemonade", "full-restore"];
+
+    function itemImg(imgObj, num) {
+      let itmImg = imgObj; 
+      const itemxhr = new XMLHttpRequest();
+      const _URL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${healing[num]}.png`;
+      itemxhr.open("GET",_URL);
+      itemxhr.responseType = 'blob';
+      itemxhr.send();
+      itemxhr.addEventListener('load', function() {
+        const objectURL = URL.createObjectURL(itemxhr.response);
+        itmImg.src = objectURL;
+      })
+    };
+
+    // list에 들어가는 item이미지
+    let healingImg = [];
+    
+
+    // for(let i = 0; i < 6; i++) {
+    //   listImg[i] = document.createElement('img');
+    //   list[i].appendChild(listImg[i]);
+    // }
+    for(let i = 0; i < 6; i++) {
+      healingImg[i] = document.createElement('img');
+      menu[0].children[i].appendChild(healingImg[i]);
+      itemImg(healingImg[i], i);
+      flexSet()
+    }    
+    
+
+    console.log(menu[0].children[0]);
+
+
   </script>
 </body>
 
