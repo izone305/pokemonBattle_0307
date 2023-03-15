@@ -21,7 +21,7 @@ const login = require('./login.js');
 let ID;
 const server = http.createServer(function(request, response){
   // 최초접속
-  if(request.method === 'GET' && request.url === '/') {
+  if(request.method === 'GET' && request.url === '/index') {
   //로그인 페이지
     response.writeHead(200);
     const loginWindow = login.body(login.formTag);
