@@ -13,6 +13,8 @@ const server = http.createServer(function(request, response){
       response.writeHead(200);
       response.write(data);
       response.end();
+
+
     })
       
     console.log("이미지 요청");
@@ -60,7 +62,7 @@ const server = http.createServer(function(request, response){
       }
   }
   if(request.method === 'GET' && request.url.startsWith('/login')) {
-    response.write()
+
   }
     
 
