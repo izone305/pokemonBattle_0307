@@ -105,18 +105,19 @@ function pokeSelectWindow(){
       cnt --;
       pokeWindow.children[cnt].prepend(arrowWrap);
     }else if (event.key === 'Enter' && cnt < 6){
-      imageCreateBack(pokeFirstImage, pokeSet[cnt]);
-      nameCreate(header.children[3].children[0], pokeSet[cnt]);
-      skillName(pokeSet[cnt]);
-      console.log(pokeSelectonWindow);
-      
-      pokeWindow.remove();
+      window.location = 'https://www.naver.com/';
+      // imageCreateBack(pokeFirstImage, pokeSet[cnt]);
+      // nameCreate(header.children[3].children[0], pokeSet[cnt]);
+      // skillName(pokeSet[cnt]);
+      // console.log(pokeSelectonWindow);
+      // pokeWindow.remove();
       pokeSelectonWindow = true;
       window.removeEventListener('keydown',pokeSelectActive);
       return;
     }else if (event.key === 'Enter' && cnt === 6){
       console.log(pokeSelectonWindow);
-      pokeWindow.remove();
+      window.location = 'https://www.naver.com/';
+      // pokeWindow.remove();
       pokeSelectonWindow = true;
       window.removeEventListener('keydown',pokeSelectActive);
       return;
