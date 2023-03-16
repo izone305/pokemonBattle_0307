@@ -15,7 +15,16 @@ const server = http.createServer(function(request, response){
     response.write(loginWindow);
     response.end();
   }
-  
+  if(request.method === 'GET' && request.url.startsWith('/pokeImg?nth=')){
+    let nth = request.url.split("=")[1]
+    fs.readFile(`./graphics/pokemon/${nth}.png`, function(err, data){
+      response.writeHead(200);
+      response.write(data);
+      response.end();
+    })
+      
+   // console.log("이미지 요청");
+  }
   if(request.method === 'GET' && request.url.startsWith('/battle')) {
     // history.replaceState({data: 'replace'}, '', '/battle'); //history.replaceState => url을 다른것으로 덮어씌워주는 녀석? node가 인식 못하는 듯
     // response.writeHead(200);
