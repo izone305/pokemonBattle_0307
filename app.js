@@ -15,7 +15,22 @@ const server = http.createServer(function(request, response){
     response.write(loginWindow);
     response.end();
   }
-  
+  if(request.method === 'GET' && request.url.startsWith('/pokeImg?nth=')){
+    let nth = request.url.split("=")[1]
+    fs.readFile(`./graphics/pokemon/${nth}.png`, function(err, data){
+      response.writeHead(200);
+      response.write(data);
+      response.end();
+    })
+  }
+  if(request.method === 'GET' && request.url.startsWith('/pokeImg/back?nth=')){
+    let nth = request.url.split("=")[1]
+    fs.readFile(`./graphics/pokemonBack/${nth}.png`, function(err, data){
+      response.writeHead(200);
+      response.write(data);
+      response.end();
+    })
+  }
   if(request.method === 'GET' && request.url.startsWith('/battle')) {
     // history.replaceState({data: 'replace'}, '', '/battle'); //history.replaceState => url을 다른것으로 덮어씌워주는 녀석? node가 인식 못하는 듯
     // response.writeHead(200);
@@ -127,11 +142,14 @@ const server = http.createServer(function(request, response){
   }
   if(request.method === 'GET' && request.url.startsWith('/select')){
     if(request.url.split('/').length === 2 ){
-      fs.readFile("pokeselectPakage/pokeSelectMain.html", function(err, data){
-        response.writeHead(200);
-        response.write(data);
-        response.end();
-      })
+      // fs.readFile("pokeselectPakage/pokeSelectMain.html", function(err, data){
+      //   response.writeHead(200);
+      //   response.write(data);
+      //   response.end();
+      // })
+      response.writeHead(200);
+      response.end(require("./htmlBox").htmlBoxFunc(require("./pokeselectPakage/pokeSelectBody")))
+
     }
     if(request.url.split('/').length === 3 ){
       if(request.url.split('/')[2] === "commonFunc.js"){
@@ -147,13 +165,15 @@ const server = http.createServer(function(request, response){
           response.write(data);
           response.end();
         })
-      }else if(request.url.split('/')[2] === "energyChecker.js"){
-        fs.readFile("pokeselectPakage/energyChecker.js", function(err, data){
-          response.writeHead(200);
-          response.write(data);
-          response.end();
-        })
-      }else if(request.url.split('/')[2] === "pokeSelect.js"){
+      }
+      // else if(request.url.split('/')[2] === "energyChecker.js"){
+      //   fs.readFile("pokeselectPakage/energyChecker.js", function(err, data){
+      //     response.writeHead(200);
+      //     response.write(data);
+      //     response.end();
+      //   })
+      // }
+      else if(request.url.split('/')[2] === "pokeSelect.js"){
         fs.readFile("pokeselectPakage/pokeSelect.js", function(err, data){
           response.writeHead(200);
           response.write(data);
