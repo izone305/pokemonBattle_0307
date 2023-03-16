@@ -1,13 +1,16 @@
 const http = require("http");
 const fs = require("fs");
 const htmlBox = require("./htmlBox");
+const urlCheck = require('./urlChecker');
+
 //const pokemon = require('pokemon')
 
 // login 모듈, body 작성/form태그 작성
 const login = require("./login.js");
 // let ID;
 const server = http.createServer(function (request, response) {
-  // 최초접속
+  let nameURL; //url이름 넣어주는 변수
+
   if (request.method === "GET" && request.url === "/") {
     //로그인 페이지
     require("./pokeRandomCreate").pokeFirstRandom();
@@ -25,7 +28,11 @@ const server = http.createServer(function (request, response) {
     });
   }
   if (request.method === "GET" && request.url.startsWith("/pokeImg?nth=")) {
+<<<<<<< HEAD
 
+=======
+    //포켓몬 이미지 앞모습 가져오는 곳
+>>>>>>> euni-12
     let nth = request.url.split("=")[1];
     fs.readFile(`./graphics/pokemon/${nth}.png`, function (err, data) {
       response.writeHead(200);
@@ -33,6 +40,7 @@ const server = http.createServer(function (request, response) {
       response.end();
     });
   }
+<<<<<<< HEAD
   if (request.method === "GET" && request.url.startsWith("/pokeItem?nth=")) {
     let nth = request.url.split("=")[1];
     fs.readFile(`./graphics/items/${nth}.png`, function (err, data) {
@@ -45,6 +53,10 @@ const server = http.createServer(function (request, response) {
     request.method === "GET" &&
     request.url.startsWith("/pokeImg/back?nth=")
   ) {
+=======
+  if (request.method === "GET" && request.url.startsWith("/pokeImg/back?nth=")) {
+    //포켓몬 이미지 뒷모습 가져오는 곳
+>>>>>>> euni-12
     let nth = request.url.split("=")[1];
     fs.readFile(`./graphics/pokemonBack/${nth}.png`, function (err, data) {
       response.writeHead(200);
@@ -68,87 +80,23 @@ const server = http.createServer(function (request, response) {
       //입력값 비교해서 맞을 경우
       // response.write("success");
       console.log(request.url.split("/").length);
+//===================================================================================
 
     //배틀 화면 서버 창
       if(request.url.split("/").length === 2){
-        /*fs.readFile("./index.html", function(err, data){
-          response.writeHead(200, {'Content-Type': 'text/html'});
-          response.write(data);
-          response.end();
-        })*/
         response.writeHead(200, {'Content-Type': 'text/html'});
         response.write(htmlBox.htmlBoxFunc(htmlBox.battleBody));
         response.end();
-
       }
       else if(request.url.split("/").length === 3){
-        let name = request.url.split('/')[2];
-        //console.log(name);
-        if(request.method === 'GET' && name === 'commonFunc.js'){
-        fs.readFile("./commonFunc.js", function(err, data){  
-          response.writeHead(200);
-          response.write(data);
-          response.end();
-        })
-        }
-        if (request.method === "GET" && name === "firstMain.js") {
-          fs.readFile("./firstMain.js", function (err, data) {
+          nameURL = urlCheck(request.url.split('/')[2]);
+          fs.readFile(nameURL, function(err, data){
             response.writeHead(200);
             response.write(data);
             response.end();
           });
-        }
-        if (request.method === "GET" && name === "energyChecker.js") {
-          fs.readFile("./energyChecker.js", function (err, data) {
-            response.writeHead(200);
-            response.write(data);
-            response.end();
-          });
-        }
-        if (request.method === "GET" && name === "backAttack.js") {
-          fs.readFile("./backAttack.js", function (err, data) {
-            response.writeHead(200);
-            response.write(data);
-            response.end();
-          });
-        }
-        if (request.method === "GET" && name === "modal.js") {
-          fs.readFile("./modal.js", function (err, data) {
-            response.writeHead(200);
-            response.write(data);
-            response.end();
-          });
-        }
-        /*if(request.method === 'GET' && name === 'pokeSelect.js'){
-          fs.readFile("./pokeSelect.js", function(err, data){
-            response.writeHead(200);
-            response.write(data);
-            response.end();
-          })
-          
-        }*/
-        if(request.method === 'GET' && name === 'footer.js'){
-          fs.readFile("./footer.js", function(err, data){
-            response.writeHead(200);
-            response.write(data);
-            response.end();
-          });
-        }
-        if (request.method === "GET" && name === "skillName.js") {
-          fs.readFile("./skillName.js", function (err, data) {
-            response.writeHead(200);
-            response.write(data);
-            response.end();
-          });
-        }
-        if (request.method === "GET" && name === "runaway.js") {
-          fs.readFile("./runaway.js", function (err, data) {
-            response.writeHead(200);
-            response.write(data);
-            response.end();
-          });
-        }
-      }else {  //입력값 비교해서 틀릴 경우
+      }
+      else {  //입력값 비교해서 틀릴 경우
         response.write("failed");
       }
     } 
@@ -157,60 +105,31 @@ const server = http.createServer(function (request, response) {
   if (request.method === "GET" && request.url.startsWith("/item")) {
     if (request.url.split("/").length === 2) {
       response.writeHead(200);
-      response.end(
-        htmlBox.htmlBoxFunc(htmlBox.bagBody)
-      );
+      response.end(htmlBox.htmlBoxFunc(htmlBox.bagBody));
     }
     if (request.url.split("/").length === 3) {
-      if (request.url.split("/")[2] === "bag.js") {
-        fs.readFile("./pokeitem/bag.js", function (err, data) {
+      nameURL = urlCheck(request.url.split('/')[2]);
+        fs.readFile(nameURL, function (err, data) {
           response.writeHead(200);
           response.write(data);
           response.end();
         });
-      }
     }
   }
   if (request.method === "GET" && request.url.startsWith("/select")) {
     if (request.url.split("/").length === 2) {
-      // fs.readFile("pokeselectPakage/pokeSelectMain.html", function(err, data){
-      //   response.writeHead(200);
-      //   response.write(data);
-      //   response.end();
-      // })
       response.writeHead(200);
       response.end(
         htmlBox.htmlBoxFunc(htmlBox.selectBody)
       );
     }
     if (request.url.split("/").length === 3) {
-      if (request.url.split("/")[2] === "commonFunc.js") {
-        fs.readFile("pokeselectPakage/commonFunc.js", function (err, data) {
+      nameURL = urlCheck(request.url.split('/')[2]);
+        fs.readFile(nameURL, function (err, data) {
           response.writeHead(200);
           response.write(data);
           response.end();
         });
-      } else if (request.url.split("/")[2] === "firstMain.js") {
-        fs.readFile("pokeselectPakage/firstMain.js", function (err, data) {
-          response.writeHead(200);
-          response.write(data);
-          response.end();
-        });
-      }
-      // else if(request.url.split('/')[2] === "energyChecker.js"){
-      //   fs.readFile("pokeselectPakage/energyChecker.js", function(err, data){
-      //     response.writeHead(200);
-      //     response.write(data);
-      //     response.end();
-      //   })
-      // }
-      else if (request.url.split("/")[2] === "pokeSelect.js") {
-        fs.readFile("pokeselectPakage/pokeSelect.js", function (err, data) {
-          response.writeHead(200);
-          response.write(data);
-          response.end();
-        });
-      }
     }
   }
   if (request.method === "GET" && request.url.startsWith("/login")) {
