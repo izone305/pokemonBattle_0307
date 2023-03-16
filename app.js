@@ -10,13 +10,22 @@ const server = http.createServer(function (request, response) {
   // 최초접속
   if (request.method === "GET" && request.url === "/") {
     //로그인 페이지
+    require("./pokeRandomCreate").pokeFirstRandom();
     response.writeHead(200);
     const loginWindow = login.body(login.formTag);
     // console.log(loginWindow);
     response.write(loginWindow);
     response.end();
   }
+  if (request.method === "GET" && request.url.startsWith("/Pokelist")) {
+     fs.readFile(`./nowPokeList.json`, function (err, data) {
+      response.writeHead(200);
+      response.write(data);
+      response.end();
+    });
+  }
   if (request.method === "GET" && request.url.startsWith("/pokeImg?nth=")) {
+
     let nth = request.url.split("=")[1];
     fs.readFile(`./graphics/pokemon/${nth}.png`, function (err, data) {
       response.writeHead(200);

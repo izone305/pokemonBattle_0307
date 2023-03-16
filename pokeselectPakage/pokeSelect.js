@@ -69,15 +69,30 @@ function pokeSelectWindow(){
   pokeWindow.children[6].style.fontSize = "30px";
   pokeWindow.children[6].style.paddingLeft = "30px";
   pokeWindow.children[6].style.cursor = "pointer";
+
+  let pokeSet = [1,2,3,4]
+
+  const xhr = new XMLHttpRequest();
+  const _URL = `http://localhost:305/Pokelist`;
+  xhr.open("GET",_URL);
+  xhr.send();
+  xhr.addEventListener("load",function(){
+    pokeDB = JSON.parse(xhr.response);
+    let pokeSet = pokeDB.pokeIndex.slice(1);
+    console.log(pokeSet)
+    for(let i =0 ; i <pokeSet.length;i++){
+      imageCreate(pokeWindow.children[i].children[0].children[0].children[0],pokeSet[i]);
+      nameCreate(pokeWindow.children[i].children[0].children[1], pokeSet[i]);
+      pokeWindow.children[0].prepend(arrowWrap);
+    }
+  })
   for(let i =0 ; i <6;i++){
-    imageCreate(pokeWindow.children[i].children[0].children[0].children[0],pokeSet[i]);
-    nameCreate(pokeWindow.children[i].children[0].children[1], pokeSet[i]);
     pokeWindow.children[i].children[0].children[1].style.paddingLeft = "20px";
     pokeWindow.children[i].children[0].children[1].style.fontSize = "20px";
-
   }
+
   let arrowWrap = document.createElement("div");
-  pokeWindow.children[0].prepend(arrowWrap);
+
   arrowWrap.style.width = "50px";
   arrowWrap.style.height = "100%";
   arrowWrap.style.position= "relative";
