@@ -119,10 +119,10 @@ const xhr = new XMLHttpRequest();
   xhr.addEventListener("load",function(){
     pokeDB = JSON.parse(xhr.response);
     let pokeSet = pokeDB.pokeIndex;
-    imageCreateBack(pokeFirstImage, pokeDB.pokeIndex[pokeDB.fightPokeIndex])
+    imageCreateBack(pokeFirstImage, pokeDB.pokeIndex[1])
     imageCreate(pokeSecondImage, pokeDB.pokeIndex[0]);
     nameCreate(header.children[0].children[0], pokeDB.pokeIndex[0]);
-    nameCreate(header.children[3].children[0], pokeDB.pokeIndex[pokeDB.fightPokeIndex]);
+    nameCreate(header.children[3].children[0], pokeDB.pokeIndex[1]);
   })
 
 

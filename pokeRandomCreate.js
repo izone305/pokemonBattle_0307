@@ -27,7 +27,6 @@ function pokeRandomCreate(n){
   };
   pokeinMyPoke["pokeIndex"] = pokeIndex;
   pokeinMyPoke["pokeHp"] = pokeHp;
-  pokeinMyPoke["fightPokeIndex"] = 1;
   return pokeinMyPoke;
 }
 
@@ -67,9 +66,16 @@ function pokeballAddList(pokeIndexNumber){
 // pokeballAddList(101)
 function pokeSelect(nth){
   let nowpoke = require("./nowPokeList.json");
-  nowpoke.fightPokeIndex = nth + 1;
-  console.log(nowpoke);
-  PokeListWrite(nowpoke);
+  if(nowpoke.pokeIndex.length>nth + 1){
+    let tempidx = nowpoke.pokeIndex[nth + 1];
+    nowpoke.pokeIndex[nth + 1] = nowpoke.pokeIndex[1];
+    nowpoke.pokeIndex[1] = tempidx;
+    let temphp = nowpoke.pokeHp[nth + 1];
+    nowpoke.pokeHp[nth + 1] = nowpoke.pokeHp[1];
+    nowpoke.pokeHp[1] = temphp;
+    PokeListWrite(nowpoke);
+  }
+  else{
+    console.log("선택하신 포켓몬 창은 비어있습니다.")
+  }
 }
-
-// pokeSelect(1)
