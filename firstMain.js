@@ -96,14 +96,6 @@ let pokeFirstImage = document.createElement("img");
 header.children[1].appendChild(pokeFirstImage);
 let pokeSecondImage = document.createElement("img");
 header.children[2].appendChild(pokeSecondImage);
-
-imageCreateBack(pokeFirstImage, pokeFirst)
-// pokeFirstImage.style.transformOrigin = "top left"
-// pokeFirstImage.style.scale = "1"
-imageCreate(pokeSecondImage, pokeSecond);
-// pokeSecondImage.style.transformOrigin = "top left";
-// pokeSecondImage.style.scale = "1";
-
 header.children[0].style.flexDirection = "column";
 header.children[3].style.flexDirection = "column";
 
@@ -119,8 +111,17 @@ function makeTags(howMany, whatString, mather){
 
 makeTags(2,"div",header.children[0]);
 makeTags(2,"div",header.children[3]);
+
+imageCreateBack(pokeFirstImage, pokeFirst)
+// pokeFirstImage.style.transformOrigin = "top left"
+// pokeFirstImage.style.scale = "1"
+imageCreate(pokeSecondImage, pokeSecond);
+// pokeSecondImage.style.transformOrigin = "top left";
+// pokeSecondImage.style.scale = "1";
 nameCreate(header.children[0].children[0], pokeSecond);
 nameCreate(header.children[3].children[0], pokeFirst);
+
+
 header.children[0].children[0].style.fontSize = "60px";
 header.children[3].children[0].style.fontSize = "60px";
 header.children[0].children[0].style.display = "flex";
