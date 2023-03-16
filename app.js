@@ -4,15 +4,20 @@ const fs = require("fs");
 
 // login 모듈, body 작성/form태그 작성
 const login = require('./login.js');
-// let ID;
+let userID;
+let userPW;
 const server = http.createServer(function(request, response){
   // 최초접속
   if(request.method === 'GET' && request.url === '/') {
   //로그인 페이지
     response.writeHead(200);
     const loginWindow = login.body(login.formTag);
-    // console.log(loginWindow);
     response.write(loginWindow);
+    fs.readFile("./signUp.html", function(err, data){
+      response.writeHead(200, {'Content-Type': 'text/html'});
+      response.write(data);
+      response.end();
+    })
     response.end();
   }
   
@@ -21,14 +26,12 @@ const server = http.createServer(function(request, response){
     // response.writeHead(200);
     const urltest2 = request.url.split('?')[1];
     const idtest = urltest2.split('=')[1];
-    const idtest2 = idtest.split('&')[0]; //id값
-    // ID = idtest.split('&')[0];
     const passtest = urltest2.split('=')[2];
-    const passtest2 = passtest.split('/')[0]; //pw값
-    console.log("idtest2 " + idtest2);
-    console.log("passtest " + passtest2);
-    if(idtest2 === "KDT" && passtest2 === "305") { //입력값 비교해서 맞을 경우
-      // response.write("success");
+    userID = idtest.split('&')[0];
+    userPW = passtest.split('/')[0];
+    console.log("id :" + userID);
+    console.log("PW :" + userPW);
+    if(userID === "KDT" && userPW === "305") { //입력값 비교해서 맞을 경우
       console.log(request.url.split("/").length);
       if(request.url.split("/").length === 2){
         fs.readFile("./index.html", function(err, data){
@@ -104,9 +107,10 @@ const server = http.createServer(function(request, response){
         }
       }
     } else {  //입력값 비교해서 틀릴 경우
+      response.writeHead(200);
       response.write("failed");
+      response.end();
     }
-    // response.end();
   }
   if(request.method === 'GET' && request.url.startsWith('/item')) {
     if(request.url.split('/').length === 2 ){
