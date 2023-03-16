@@ -1,6 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const htmlBox = require("./htmlBox");
+const pokeRandomCreate = require("./pokeRandomCreate")
 //const pokemon = require('pokemon')
 
 // login 모듈, body 작성/form태그 작성
@@ -18,11 +19,19 @@ const server = http.createServer(function (request, response) {
     response.end();
   }
   if (request.method === "GET" && request.url.startsWith("/Pokelist")) {
-     fs.readFile(`./nowPokeList.json`, function (err, data) {
+    if(request.url.split("/").length === 2){
+      fs.readFile(`./nowPokeList.json`, function (err, data) {
       response.writeHead(200);
       response.write(data);
       response.end();
-    });
+    })
+    }else if(request.url.split("/").length === 3){
+      let nth = request.url.split("=")[1]
+      pokeRandomCreate.pokeSelect(nth);
+      response.writeHead(200);
+      response.end();
+      console.log(nth + " 포켓몬 수정");
+    }
   }
   if (request.method === "GET" && request.url.startsWith("/pokeImg?nth=")) {
 
