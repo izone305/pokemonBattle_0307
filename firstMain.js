@@ -112,14 +112,20 @@ function makeTags(howMany, whatString, mather){
 makeTags(2,"div",header.children[0]);
 makeTags(2,"div",header.children[3]);
 
-imageCreateBack(pokeFirstImage, pokeFirst)
-// pokeFirstImage.style.transformOrigin = "top left"
-// pokeFirstImage.style.scale = "1"
-imageCreate(pokeSecondImage, pokeSecond);
-// pokeSecondImage.style.transformOrigin = "top left";
-// pokeSecondImage.style.scale = "1";
-nameCreate(header.children[0].children[0], pokeSecond);
-nameCreate(header.children[3].children[0], pokeFirst);
+const xhr = new XMLHttpRequest();
+  const _URL = `http://localhost:305/Pokelist`;
+  xhr.open("GET",_URL);
+  xhr.send();
+  xhr.addEventListener("load",function(){
+    pokeDB = JSON.parse(xhr.response);
+    let pokeSet = pokeDB.pokeIndex;
+    imageCreateBack(pokeFirstImage, pokeDB.pokeIndex[1])
+    imageCreate(pokeSecondImage, pokeDB.pokeIndex[0]);
+    nameCreate(header.children[0].children[0], pokeDB.pokeIndex[0]);
+    nameCreate(header.children[3].children[0], pokeDB.pokeIndex[1]);
+  })
+
+
 
 
 header.children[0].children[0].style.fontSize = "60px";
