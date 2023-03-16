@@ -27,6 +27,14 @@ const server = http.createServer(function (request, response) {
       response.end();
     });
   }
+  if (request.method === "GET" && request.url.startsWith("/pokeItem?nth=")) {
+    let nth = request.url.split("=")[1];
+    fs.readFile(`./graphics/items/${nth}.png`, function (err, data) {
+      response.writeHead(200);
+      response.write(data);
+      response.end();
+    });
+  }
   if (request.method === "GET" && request.url.startsWith("/pokeImg?nth=")) {
     //포켓몬 이미지 앞모습 가져오는 곳
     let nth = request.url.split("=")[1];
