@@ -240,6 +240,25 @@ function bagSelectWindow() {
       menu[3].children[i].style.cursor = "pointer";
     });
   }
+
+  for (let i = 0; i < 6; i++) {
+    menu[0].children[i].addEventListener("click", function () {
+      menu[0].children[i].style.cursor = "pointer";
+      window.location = 'http://localhost:305/battle?id=KDT&password=305';
+    });
+    menu[1].children[i].addEventListener("click", function () {
+      menu[1].children[i].style.cursor = "pointer";
+      window.location = 'http://localhost:305/battle?id=KDT&password=305';
+    });
+    menu[2].children[i].addEventListener("click", function () {
+      menu[2].children[i].style.cursor = "pointer";
+      window.location = 'http://localhost:305/battle?id=KDT&password=305';
+    });
+    menu[3].children[i].addEventListener("click", function () {
+      menu[3].children[i].style.cursor = "pointer";
+      window.location = 'http://localhost:305/battle?id=KDT&password=305';
+    });
+  }
 }
 
 bagSelectWindow();

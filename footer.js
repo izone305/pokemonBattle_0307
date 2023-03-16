@@ -237,8 +237,12 @@ window.addEventListener('keydown', function (event) {
     if (arr[0] === 0 && arr[1] === 0) {
       console.log("click");
       modalWarp.style.display = "block";
-    }else if(arr[0] === 1 && arr[1] === 0 && pokeSelectonWindow){
+    }
+    else if(arr[0] === 1 && arr[1] === 0){
       window.location = 'http://localhost:305/select';
+    }
+    else if(arr[0] === 0 && arr[1] === 2) {
+      window.location = 'http://localhost:305/item';
     }
   }
 })
