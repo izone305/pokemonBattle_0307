@@ -21,18 +21,14 @@ const server = http.createServer(function (request, response) {
     response.end();
   }
   if (request.method === "GET" && request.url.startsWith("/Pokelist")) {
-     fs.readFile(`./nowPokeList.json`, function (err, data) {
+      fs.readFile(`./nowPokeList.json`, function (err, data) {
       response.writeHead(200);
       response.write(data);
       response.end();
     });
   }
   if (request.method === "GET" && request.url.startsWith("/pokeImg?nth=")) {
-<<<<<<< HEAD
-
-=======
     //포켓몬 이미지 앞모습 가져오는 곳
->>>>>>> euni-12
     let nth = request.url.split("=")[1];
     fs.readFile(`./graphics/pokemon/${nth}.png`, function (err, data) {
       response.writeHead(200);
@@ -40,23 +36,8 @@ const server = http.createServer(function (request, response) {
       response.end();
     });
   }
-<<<<<<< HEAD
-  if (request.method === "GET" && request.url.startsWith("/pokeItem?nth=")) {
-    let nth = request.url.split("=")[1];
-    fs.readFile(`./graphics/items/${nth}.png`, function (err, data) {
-      response.writeHead(200);
-      response.write(data);
-      response.end();
-    });
-  }
-  if (
-    request.method === "GET" &&
-    request.url.startsWith("/pokeImg/back?nth=")
-  ) {
-=======
   if (request.method === "GET" && request.url.startsWith("/pokeImg/back?nth=")) {
     //포켓몬 이미지 뒷모습 가져오는 곳
->>>>>>> euni-12
     let nth = request.url.split("=")[1];
     fs.readFile(`./graphics/pokemonBack/${nth}.png`, function (err, data) {
       response.writeHead(200);
