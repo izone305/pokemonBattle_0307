@@ -26,8 +26,7 @@ function imageCreate(imageObj, nth){
 function imageCreateBack(imageObj, nth){
   const pokeimageBack = imageObj;
   const xhrBack = new XMLHttpRequest();
-  //const _URLBack = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${nth}.png`;
-  const _URLBack = `http://localhost:305/pokeImg/back?nth=${nth}`;
+  const _URLBack = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${nth}.png`;
   xhrBack.open("GET",_URLBack);
   xhrBack.responseType = 'blob';
   xhrBack.send();
