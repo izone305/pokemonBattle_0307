@@ -1,13 +1,12 @@
 const http = require('http');
 const fs = require("fs");
-const html = require('./index-html');
+const html = require('./html');
 //const pokemon = require('pokemon')
 
 // login 모듈, body 작성/form태그 작성
 const login = require('./login.js');
 // let ID;
 const server = http.createServer(function(request, response){
-  // 최초접속
   if(request.method === 'GET' && request.url === '/') {
   //로그인 페이지
     response.writeHead(200);
@@ -29,7 +28,7 @@ const server = http.createServer(function(request, response){
   if(request.method === 'GET' && request.url.startsWith('/battle')) {
     // history.replaceState({data: 'replace'}, '', '/battle'); //history.replaceState => url을 다른것으로 덮어씌워주는 녀석? node가 인식 못하는 듯
     // response.writeHead(200);
-    const urltest2 = request.url.split('?')[1];
+    /*const urltest2 = request.url.split('?')[1];
     const idtest = urltest2.split('=')[1];
     const idtest2 = idtest.split('&')[0]; //id값
     // ID = idtest.split('&')[0];
@@ -39,23 +38,22 @@ const server = http.createServer(function(request, response){
     console.log("passtest " + passtest2);
     if(idtest2 === "KDT" && passtest2 === "305") { //입력값 비교해서 맞을 경우
       // response.write("success");
-      console.log(request.url.split("/").length);
+      console.log(request.url.split("/").length);*/
     
-      //배틀 화면 서버 창
-      function scriptMk(data){
-        return `<script src="${data}"></script>`
-      };
-      srcList= ["/battle/commonFunc.js", "/battle/firstMain.js", "/battle/energyChecker.js", "/battle/backAttack.js", "/battle/modal.js", "/battle/pokeSelect.js", "/battle/footer.js", "/battle/skillName.js", "/battle/runaway.js"]; //참조되는 파일 리스트
-
       
 
+      //배틀 화면 서버 창
       if(request.url.split("/").length === 2){
-        fs.readFile("./index-html.js", function(err, data){
+        /*fs.readFile("./index.html", function(err, data){
           response.writeHead(200, {'Content-Type': 'text/html'});
-          response.write(data(scr));
-
+          response.write(data);
           response.end();
-        })
+        })*/
+        response.writeHead(200, {'Content-Type': 'text/html'});
+        response.write(html.htmlStd(html.battleList));
+        response.end();
+        console.log(html.htmlStd(html.battleList))
+
       }else if(request.url.split("/").length === 3){
       
       let name = request.url.split('/')[2];
@@ -123,7 +121,7 @@ const server = http.createServer(function(request, response){
             response.end();
           })
         }
-      }
+      //}
     } else {  //입력값 비교해서 틀릴 경우
       response.write("failed");
     }

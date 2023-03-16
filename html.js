@@ -1,5 +1,22 @@
-module.exports = function(script){
-  `<!DOCTYPE html>
+
+module.exports = {
+  battleList: `
+        <div id="root">
+          <div id="header"></div>
+          <div id="footer"></div>
+          <div id="modalWrap"></div>
+        </div>
+        <script src="/battle/commonFunc.js"></script>
+        <script src="/battle/firstMain.js"></script>
+        <script src="/battle/energyChecker.js"></script> 
+        <script src="/battle/backAttack.js"></script> 
+        <script src="/battle/modal.js"></script> 
+        <script src="/battle/footer.js"></script> 
+        <script src="/battle/skillName.js"></script> 
+        <script src="/battle/runaway.js"></script>
+      `,
+  htmlStd: function(script){
+  return`<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -17,13 +34,9 @@ module.exports = function(script){
     </style>
   </head>
   <body>
-    <div id="root">
-      <div id="header"></div>
-      <div id="footer"></div>
-      <div id="modalWrap"></div>
-    </div>
     ${script}
   </body>
     
   </html>`
+}
 }
