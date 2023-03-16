@@ -185,11 +185,6 @@ footer.children[0].children[1].addEventListener('click', function () {
   console.log("click");
   modalWarp.style.display = "block";
 })
-footer.children[1].children[1].addEventListener('click', function () {
-  pokeSelectWindow()
-})
-
-
 
 window.addEventListener('keydown', function (event) {
   if (event.key === 'ArrowRight') {
