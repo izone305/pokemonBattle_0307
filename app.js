@@ -25,7 +25,7 @@ const server = http.createServer(function(request, response){
   //로그인 페이지
     response.writeHead(200);
     const loginWindow = login.body(login.formTag);
-    console.log(loginWindow);
+    // console.log(loginWindow);
     response.write(loginWindow);
     response.end();
   }
