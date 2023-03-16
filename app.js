@@ -1,6 +1,6 @@
 const http = require("http");
 const fs = require("fs");
-const html = require('./html');
+const htmlBox = require("./htmlBox");
 //const pokemon = require('pokemon')
 
 // login 모듈, body 작성/form태그 작성
@@ -24,10 +24,7 @@ const server = http.createServer(function (request, response) {
       response.end();
     });
   }
-  if (
-    request.method === "GET" &&
-    request.url.startsWith("/pokeImg/back?nth=")
-  ) {
+  if (request.method === "GET" && request.url.startsWith("/pokeImg/back?nth=")) {
     let nth = request.url.split("=")[1];
     fs.readFile(`./graphics/pokemonBack/${nth}.png`, function (err, data) {
       response.writeHead(200);
@@ -51,7 +48,7 @@ const server = http.createServer(function (request, response) {
       // response.write("success");
       console.log(request.url.split("/").length);
 
-      //배틀 화면 서버 창
+    //배틀 화면 서버 창
       if(request.url.split("/").length === 2){
         /*fs.readFile("./index.html", function(err, data){
           response.writeHead(200, {'Content-Type': 'text/html'});
@@ -59,9 +56,8 @@ const server = http.createServer(function (request, response) {
           response.end();
         })*/
         response.writeHead(200, {'Content-Type': 'text/html'});
-        response.write(html.htmlStd(html.battleList));
+        response.write(htmlBox.htmlBoxFunc(htmlBox.battleBody));
         response.end();
-        console.log(html.htmlStd(html.battleList))
 
       }
       else if(request.url.split("/").length === 3){
@@ -141,9 +137,7 @@ const server = http.createServer(function (request, response) {
     if (request.url.split("/").length === 2) {
       response.writeHead(200);
       response.end(
-        require("./htmlBox").htmlBoxFunc(
-          require("./pokeitem/itemSelectBody")
-        )
+        htmlBox.htmlBoxFunc(htmlBox.bagBody)
       );
     }
     if (request.url.split("/").length === 3) {
@@ -165,9 +159,7 @@ const server = http.createServer(function (request, response) {
       // })
       response.writeHead(200);
       response.end(
-        require("./htmlBox").htmlBoxFunc(
-          require("./pokeselectPakage/pokeSelectBody")
-        )
+        htmlBox.htmlBoxFunc(htmlBox.selectBody)
       );
     }
     if (request.url.split("/").length === 3) {
