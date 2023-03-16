@@ -114,11 +114,14 @@ const server = http.createServer(function(request, response){
   }
   if(request.method === 'GET' && request.url.startsWith('/select')){
     if(request.url.split('/').length === 2 ){
-      fs.readFile("pokeselectPakage/pokeSelectMain.html", function(err, data){
-        response.writeHead(200);
-        response.write(data);
-        response.end();
-      })
+      // fs.readFile("pokeselectPakage/pokeSelectMain.html", function(err, data){
+      //   response.writeHead(200);
+      //   response.write(data);
+      //   response.end();
+      // })
+      response.writeHead(200);
+      response.end(require("./htmlBox").htmlBoxFunc(require("./pokeselectPakage/pokeSelectBody")))
+
     }
     if(request.url.split('/').length === 3 ){}
       if(request.url.split('/')[2] === "commonFunc.js"){
@@ -134,13 +137,15 @@ const server = http.createServer(function(request, response){
           response.write(data);
           response.end();
         })
-      }else if(request.url.split('/')[2] === "energyChecker.js"){
-        fs.readFile("pokeselectPakage/energyChecker.js", function(err, data){
-          response.writeHead(200);
-          response.write(data);
-          response.end();
-        })
-      }else if(request.url.split('/')[2] === "pokeSelect.js"){
+      }
+      // else if(request.url.split('/')[2] === "energyChecker.js"){
+      //   fs.readFile("pokeselectPakage/energyChecker.js", function(err, data){
+      //     response.writeHead(200);
+      //     response.write(data);
+      //     response.end();
+      //   })
+      // }
+      else if(request.url.split('/')[2] === "pokeSelect.js"){
         fs.readFile("pokeselectPakage/pokeSelect.js", function(err, data){
           response.writeHead(200);
           response.write(data);

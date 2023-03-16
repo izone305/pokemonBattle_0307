@@ -105,7 +105,7 @@ function pokeSelectWindow(){
       cnt --;
       pokeWindow.children[cnt].prepend(arrowWrap);
     }else if (event.key === 'Enter' && cnt < 6){
-      window.location = 'https://www.naver.com/';
+      window.location = 'http://localhost:305/battle';
       // imageCreateBack(pokeFirstImage, pokeSet[cnt]);
       // nameCreate(header.children[3].children[0], pokeSet[cnt]);
       // skillName(pokeSet[cnt]);
@@ -116,7 +116,7 @@ function pokeSelectWindow(){
       return;
     }else if (event.key === 'Enter' && cnt === 6){
       console.log(pokeSelectonWindow);
-      window.location = 'https://www.naver.com/';
+      window.location = 'http://localhost:305/battle';
       // pokeWindow.remove();
       pokeSelectonWindow = true;
       window.removeEventListener('keydown',pokeSelectActive);
