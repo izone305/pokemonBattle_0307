@@ -1,6 +1,6 @@
 module.exports = {
   formTag: `
-  <form method="GET" action="/battle">
+  <form method="GET" action="http://localhost:305/battle">
     <label for="id">ID : </label>
     <input type="text" id="id" name="id">
     <br>
@@ -32,7 +32,7 @@ module.exports = {
   </form>
   `,
   signUpForm: `
-  <form method="GET" action="/battle">
+  <form method="GET" action="http://localhost:305/">
     <label for="id">ID : </label>
     <input type="text" id="id" name="id">
     <br>
