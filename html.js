@@ -6,14 +6,14 @@ module.exports = {
           <div id="footer"></div>
           <div id="modalWrap"></div>
         </div>
-        <script src="/battle/commonFunc.js"></script>
-        <script src="/battle/firstMain.js"></script>
-        <script src="/battle/energyChecker.js"></script> 
-        <script src="/battle/backAttack.js"></script> 
-        <script src="/battle/modal.js"></script> 
-        <script src="/battle/footer.js"></script> 
-        <script src="/battle/skillName.js"></script> 
-        <script src="/battle/runaway.js"></script>
+        <script src="/battle?id=KDT&password=305/commonFunc.js"></script>
+        <script src="/battle?id=KDT&password=305/firstMain.js"></script>
+        <script src="/battle?id=KDT&password=305/energyChecker.js"></script> 
+        <script src="/battle?id=KDT&password=305/backAttack.js"></script> 
+        <script src="/battle?id=KDT&password=305/modal.js"></script> 
+        <script src="/battle?id=KDT&password=305/footer.js"></script> 
+        <script src="/battle?id=KDT&password=305/skillName.js"></script> 
+        <script src="/battle?id=KDT&password=305/runaway.js"></script>
       `,
   htmlStd: function(script){
   return`<!DOCTYPE html>
