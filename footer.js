@@ -242,5 +242,8 @@ window.addEventListener('keydown', function (event) {
     else if(arr[0] === 1 && arr[1] === 0 ){
       window.location = 'http://localhost:305/select';
     }
+    else if(arr[0] === 0 && arr[1] === 2) {
+      window.location = 'http://localhost:305/item';
+    }
   }
 })
