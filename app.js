@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require("fs");
+const html = require('./index-html');
 //const pokemon = require('pokemon')
 
 const server = http.createServer(function(request, response){
@@ -20,16 +21,24 @@ const server = http.createServer(function(request, response){
   }
   if(request.method === 'GET' && request.url.startsWith('/battle')) {
     //배틀 화면 서버 창
+    function scriptMk(data){
+      return `<script src="${data}"></script>`
+    };
+    srcList= ["/battle/commonFunc.js", "/battle/firstMain.js", "/battle/energyChecker.js", "/battle/backAttack.js", "/battle/modal.js", "/battle/pokeSelect.js", "/battle/footer.js", "/battle/skillName.js", "/battle/runaway.js"]; //참조되는 파일 리스트
+
+    
+
     if(request.url.split("/").length === 2){
-      fs.readFile("./index.html", function(err, data){
+      fs.readFile("./index-html.js", function(err, data){
         response.writeHead(200, {'Content-Type': 'text/html'});
-        response.write(data);
+        response.write(data(scr));
+
         response.end();
       })
     }else if(request.url.split("/").length === 3){
       
       let name = request.url.split('/')[2];
-      console.log(name);
+      //console.log(name);
       if(request.method === 'GET' && name === 'commonFunc.js'){
       fs.readFile("./commonFunc.js", function(err, data){  
         response.writeHead(200);
