@@ -24,7 +24,18 @@ const server = http.createServer(function (request, response) {
       response.end();
     });
   }
-  if (request.method === "GET" && request.url.startsWith("/pokeImg/back?nth=")) {
+  if (request.method === "GET" && request.url.startsWith("/pokeItem?nth=")) {
+    let nth = request.url.split("=")[1];
+    fs.readFile(`./graphics/items/${nth}.png`, function (err, data) {
+      response.writeHead(200);
+      response.write(data);
+      response.end();
+    });
+  }
+  if (
+    request.method === "GET" &&
+    request.url.startsWith("/pokeImg/back?nth=")
+  ) {
     let nth = request.url.split("=")[1];
     fs.readFile(`./graphics/pokemonBack/${nth}.png`, function (err, data) {
       response.writeHead(200);
@@ -32,6 +43,7 @@ const server = http.createServer(function (request, response) {
       response.end();
     });
   }
+  
   if (request.method === "GET" && request.url.startsWith("/battle")) {
     // history.replaceState({data: 'replace'}, '', '/battle'); //history.replaceState => url을 다른것으로 덮어씌워주는 녀석? node가 인식 못하는 듯
     // response.writeHead(200);

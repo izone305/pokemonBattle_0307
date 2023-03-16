@@ -92,45 +92,9 @@ function bagSelectWindow() {
   bagMenu[2].textContent = "배틀";
   bagMenu[3].textContent = "열매";
 
-  // itemList
-  let itemObject = {
-    healing: [
-      "potion",
-      "super-potion",
-      "max-potion",
-      "fresh-water",
-      "lemonade",
-      "full-restore",
-    ],
-    pokeball: [
-      "master-ball",
-      "ultra-ball",
-      "great-ball",
-      "poke-ball",
-      "safari-ball",
-      "park-ball",
-    ],
-    battle: [
-      "guard-spec",
-      "dire-hit",
-      "x-attack",
-      "x-defense",
-      "x-speed",
-      "x-accuracy",
-    ],
-    berrys: [
-      "cheri-berry",
-      "chesto-berry",
-      "pecha-berry",
-      "rawst-berry",
-      "aspear-berry",
-      "leppa-berry",
-    ],
-  };
-
   let itemNumObject = {
     healing: [17, 24, 26, 30, 32, 33],
-    pokeball: [1, 2, 3, 4, 5, 6],
+    pokeball: [1, 2, 3, 4, 5, 457],
     battle: [55, 56, 57, 58, 59, 60],
     berrys: [126, 127, 128, 129, 130, 131],
   };
@@ -139,7 +103,7 @@ function bagSelectWindow() {
   function itemImg(imgObj, menuName, num) {
     let itmImg = imgObj;
     const itemxhr = new XMLHttpRequest();
-    const _URL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${menuName[num]}.png`;
+    const _URL = `http://localhost:305/pokeItem?nth=${menuName[num]}`;
     itemxhr.open("GET", _URL);
     itemxhr.responseType = "blob";
     itemxhr.send();
@@ -167,28 +131,28 @@ function bagSelectWindow() {
     menu[0].children[i].appendChild(healingitemImg[i]);
     divItemDetail.healingitemDetail[i] = document.createElement("div");
     menu[0].children[i].appendChild(divItemDetail.healingitemDetail[i]);
-    itemImg(healingitemImg[i], itemObject.healing, i);
+    itemImg(healingitemImg[i], itemNumObject.healing, i);
   }
   for (let i = 0; i < 6; i++) {
     ballitemImg[i] = document.createElement("img");
     menu[1].children[i].appendChild(ballitemImg[i]);
     divItemDetail.ballitemDetail[i] = document.createElement("div");
     menu[1].children[i].appendChild(divItemDetail.ballitemDetail[i]);
-    itemImg(ballitemImg[i], itemObject.pokeball, i);
+    itemImg(ballitemImg[i], itemNumObject.pokeball, i);
   }
   for (let i = 0; i < 6; i++) {
     battleitemImg[i] = document.createElement("img");
     menu[2].children[i].appendChild(battleitemImg[i]);
     divItemDetail.battleitemDetail[i] = document.createElement("div");
     menu[2].children[i].appendChild(divItemDetail.battleitemDetail[i]);
-    itemImg(battleitemImg[i], itemObject.battle, i);
+    itemImg(battleitemImg[i], itemNumObject.battle, i);
   }
   for (let i = 0; i < 6; i++) {
     berryitemImg[i] = document.createElement("img");
     menu[3].children[i].appendChild(berryitemImg[i]);
     divItemDetail.berryitemDetail[i] = document.createElement("div");
     menu[3].children[i].appendChild(divItemDetail.berryitemDetail[i]);
-    itemImg(berryitemImg[i], itemObject.berrys, i);
+    itemImg(berryitemImg[i], itemNumObject.berrys, i);
   }
 
   function itemDetail(itemNum, num, itemcontent) {
