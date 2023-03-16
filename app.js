@@ -29,7 +29,7 @@ const server = http.createServer(function (request, response) {
     })
     }else if(request.url.split("/").length === 3){
       let nth = request.url.split("=")[1]
-      pokeRandomCreate.pokeSelect(nth);
+      pokeRandomCreate.pokeSelect(Number(nth));
       response.writeHead(200);
       response.end();
       console.log(nth + " 포켓몬 수정");

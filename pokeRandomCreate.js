@@ -27,6 +27,7 @@ function pokeRandomCreate(n){
   };
   pokeinMyPoke["pokeIndex"] = pokeIndex;
   pokeinMyPoke["pokeHp"] = pokeHp;
+  pokeinMyPoke["fightPokeIndex"] = 1;
   return pokeinMyPoke;
 }
 
@@ -66,19 +67,9 @@ function pokeballAddList(pokeIndexNumber){
 // pokeballAddList(101)
 function pokeSelect(nth){
   let nowpoke = require("./nowPokeList.json");
-  if(nowpoke.pokeIndex.length>nth + 1){
-    let tempIdx = nowpoke.pokeIndex[nth + 1];
-    nowpoke.pokeIndex[nth + 1] = nowpoke.pokeIndex[1];
-    nowpoke.pokeIndex[1] = tempIdx;
-    let tempHp = nowpoke.pokeHp[nth + 1];
-    nowpoke.pokeHp[nth + 1] = nowpoke.pokeHp[1];
-    nowpoke.pokeHp[1] = tempHp;
-    
-    console.log("정상적으로 포켓몬을 교체했습니다");
-    PokeListWrite(nowpoke);
-  }else{
-    console.log("요청하신 포켓몬 리스트는 비어있습니다");
-  }
+  nowpoke.fightPokeIndex = nth + 1;
+  console.log(nowpoke);
+  PokeListWrite(nowpoke);
 }
 
-// pokeSelect(2)
+// pokeSelect(1)
