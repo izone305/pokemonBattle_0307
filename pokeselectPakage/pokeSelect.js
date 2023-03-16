@@ -69,7 +69,7 @@ function pokeSelectWindow(){
   pokeWindow.children[6].style.fontSize = "30px";
   pokeWindow.children[6].style.paddingLeft = "30px";
   pokeWindow.children[6].style.cursor = "pointer";
-  for(let i =0 ; i <6;i++){
+  for(let i =0 ; i <pokeSet.length;i++){
     imageCreate(pokeWindow.children[i].children[0].children[0].children[0],pokeSet[i]);
     nameCreate(pokeWindow.children[i].children[0].children[1], pokeSet[i]);
     pokeWindow.children[i].children[0].children[1].style.paddingLeft = "20px";

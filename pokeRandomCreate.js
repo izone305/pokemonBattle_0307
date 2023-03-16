@@ -17,7 +17,7 @@ function pokeRandomCreate(n){
   let pokeinMyPoke = {};
   let pokeIndex = [];
   let pokeHp = [];
-  while(pokeIndex.length<n + 1){
+  while(pokeIndex.length<n){
     let randomNow = getRandomInt(1, 151);
     if(!pokeIndex.includes(randomNow)){
       pokeIndex.push(randomNow);
@@ -48,7 +48,7 @@ function pokeFirstRandom(){
   PokeListWrite(pokeRandomCreate(4));
 }
 
-
+pokeFirstRandom()
 // nowPokeList와 동일한 폴더에서만 작동합니다.
 // 같은 파일에 PokeListWrite()함수를 쓰고 있습니다
 function pokeballAddList(pokeIndexNumber){

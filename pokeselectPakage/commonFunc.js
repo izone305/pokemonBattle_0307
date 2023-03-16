@@ -46,9 +46,12 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min);
 }
-let pokeFirst = getRandomInt(1, 152);
-let pokeSecond = getRandomInt(1, 152);
-let pokeSet = [pokeFirst, getRandomInt(1, 152),getRandomInt(1, 152),getRandomInt(1, 152),getRandomInt(1, 152),getRandomInt(1, 152)]
+
+// 상대참조 주의!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+let pokelistjson = require("../nowPokeList.json");
+let pokeFirst = pokelistjson.pokeIndex[1];
+let pokeSecond = pokelistjson.pokeIndex[0];
+let pokeSet = pokelistjson.pokeIndex;
 
 // //상대 공격 시 움직임 함수
 // function movePokeBackAttack(name, time, delay) {
