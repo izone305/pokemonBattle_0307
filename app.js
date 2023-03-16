@@ -4,20 +4,25 @@ const fs = require("fs");
 
 // login 모듈, body 작성/form태그 작성
 const login = require('./login.js');
+const { hasSubscribers } = require('diagnostics_channel');
 let userID;
 let userPW;
+const userLogin = {};
 const server = http.createServer(function(request, response){
   // 최초접속
   if(request.method === 'GET' && request.url === '/') {
   //로그인 페이지
     response.writeHead(200);
     const loginWindow = login.body(login.formTag);
+    const signUpWindow = login.body(login.signUpBtn);
     response.write(loginWindow);
-    fs.readFile("./signUp.html", function(err, data){
-      response.writeHead(200, {'Content-Type': 'text/html'});
-      response.write(data);
-      response.end();
-    })
+    response.write(signUpWindow);
+    response.end();
+  }
+  if(request.method === 'GET' && request.url.startsWith('/signUp')) {
+    response.writeHead(200);
+    const loginWindow = login.body(login.signUpForm);
+    response.write(loginWindow);
     response.end();
   }
   
@@ -29,10 +34,38 @@ const server = http.createServer(function(request, response){
     const passtest = urltest2.split('=')[2];
     userID = idtest.split('&')[0];
     userPW = passtest.split('/')[0];
-    console.log("id :" + userID);
-    console.log("PW :" + userPW);
-    if(userID === "KDT" && userPW === "305") { //입력값 비교해서 맞을 경우
-      console.log(request.url.split("/").length);
+
+    console.log("초기 객체값 검사");
+    console.dir(userLogin);
+    console.log("초기 객체값 검사");
+
+    // 객체에 {userID : userPW} 형식으로 데이터를 입력
+    userLogin[userID] = userPW;
+
+    console.log("loginData ID :" + Object.keys(userLogin));
+    console.log("loginData PW :" + userLogin[userID]);
+
+    const loginData = JSON.stringify(userLogin);
+
+    // loginData.JSON 파일에 입력
+    fs.writeFile('./loginData.JSON', loginData, (err) => {
+      console.log("success");
+    });
+
+    // 파일 데이터 읽어봄 // 확인용
+    // fs.readFile('./loginData.JSON',(err, data) => {
+    //   const dataJSON = data.toString()
+    //   console.log(dataJSON);
+    // });
+
+    // 이전 url을 확인 -> error 발생
+    // console.log(document.referrer);
+    
+    console.log(userLogin + "객체")
+    console.log(Object.keys(userLogin).includes(userID) + "객체 key 검사 test")
+    console.log(userLogin[userID] + "객체 값 검사 test");
+
+    if(Object.keys(userLogin).includes(userID) === true && userLogin[userID] === userPW) { //입력값 비교해서 맞을 경우
       if(request.url.split("/").length === 2){
         fs.readFile("./index.html", function(err, data){
           response.writeHead(200, {'Content-Type': 'text/html'});

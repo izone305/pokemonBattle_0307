@@ -9,7 +9,6 @@ module.exports = {
     <br>
     <input type="submit" value="로그인">
   </form>
-  <a href="./signUp.html">회원가입</a>
   <p>ID : KDT / PW : 305</p>
   `,
   body: function bodyData(data) {
@@ -27,4 +26,20 @@ module.exports = {
   </body>
   </html>
   `},
+  signUpBtn:`
+  <form method="GET" action="/signUp">
+    <input type="submit" value="회원가입">
+  </form>
+  `,
+  signUpForm: `
+  <form method="GET" action="/battle">
+    <label for="id">ID : </label>
+    <input type="text" id="id" name="id">
+    <br>
+    <label for="password">PW: </label>
+    <input type="text" id="password" name="password">
+    <br>
+    <input type="submit" value="가입하기">
+  </form>
+  `,
 };
