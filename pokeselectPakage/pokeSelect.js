@@ -105,7 +105,7 @@ function pokeSelectWindow(){
       cnt --;
       pokeWindow.children[cnt].prepend(arrowWrap);
     }else if (event.key === 'Enter' && cnt < 6){
-      window.location = 'http://localhost:305/battle';
+      window.location = 'http://localhost:305/battle?id=KDT&password=305';
       // imageCreateBack(pokeFirstImage, pokeSet[cnt]);
       // nameCreate(header.children[3].children[0], pokeSet[cnt]);
       // skillName(pokeSet[cnt]);
@@ -116,7 +116,7 @@ function pokeSelectWindow(){
       return;
     }else if (event.key === 'Enter' && cnt === 6){
       console.log(pokeSelectonWindow);
-      window.location = 'http://localhost:305/battle';
+      window.location = 'http://localhost:305/battle?id=KDT&password=305';
       // pokeWindow.remove();
       pokeSelectonWindow = true;
       window.removeEventListener('keydown',pokeSelectActive);
