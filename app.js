@@ -12,29 +12,52 @@ const server = http.createServer(function(request, response){
     fs.readFile(`./node_modules/pokemon-sprites/sprites/pokemon/${pp}.png`, function(err, data){
       response.writeHead(200);
       response.write(data);
-      response.end();
+      response.end()
 
 
     })
       
     console.log("이미지 요청");
   }
-  if(request.method === 'GET' && request.url.startsWith('/login')) {
+  // if(request.method === 'GET' && request.url.startsWith('/login')) {
 
+  // }
+  // if(request.method === 'GET' && request.url.startsWith('/login')) {
+
+  // }
+  // if(request.method === 'GET' && request.url.startsWith('/login')) {
+
+  // }
+
+
+
+// 4. 도망가다 부분
+if(request.method === 'GET' && request.url.startsWith('/runway')){
+  if(request.url.split("/").length === 2){
+    fs.readFile("./runtoyo/runaway.html", function(err, data){
+      response.writeHead(200);
+      response.write(data);
+      response.end();
+    })
+    }else if(request.url.split("/").length === 3){
+      fs.readFile("./runtoyo/runaway.js", function(err, data){
+        response.writeHead(200);
+        response.write(data);
+        response.end();
+      })
+    }
+  
   }
-  if(request.method === 'GET' && request.url.startsWith('/login')) {
+})
+  
 
-  }
-  if(request.method === 'GET' && request.url.startsWith('/login')) {
 
-  }
-  if(request.method === 'GET' && request.url.startsWith('/login')) {
 
-  }
-    
 
-  });
+
+  
+
   // 서버 포트 설정
-  server.listen(305, function(error) {
+  server.listen(3000, function(error) {
   if(error) { console.error('서버 안돌아감') } else { console.log('서버 돌아감'); }
   });

@@ -188,8 +188,11 @@ footer.children[0].children[1].addEventListener('click', function () {
 footer.children[1].children[1].addEventListener('click', function () {
   pokeSelectWindow()
 })
-
-
+// 여기가 도망가다
+ footer.children[1].children[3].addEventListener('click',function (){
+  crazy()
+ })
+console.log(footer.children[1].children[3]);
 
 window.addEventListener('keydown', function (event) {
   if (event.key === 'ArrowRight') {
@@ -242,8 +245,10 @@ window.addEventListener('keydown', function (event) {
     if (arr[0] === 0 && arr[1] === 0) {
       console.log("click");
       modalWarp.style.display = "block";
-    }else if(arr[0] === 1 && arr[1] === 0 && pokeSelectonWindow){
-      pokeSelectWindow();
+    }else if(arr[0] === 1 && arr[1] === 0 &&   runawaypage()
+    ){
+      crazy();
+      
     }
   }
 })
