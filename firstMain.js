@@ -13,7 +13,7 @@ root.style.top = "50px";
 function imageCreate(imageObj, nth){
   const pokeimage = imageObj;
   const xhr = new XMLHttpRequest();
-  const _URL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${nth}.png`;
+  const _URL = `http://localhost:305/pokeImg?nth=${nth}`;
   xhr.open("GET",_URL);
   xhr.responseType = 'blob';
   xhr.send();
@@ -35,6 +35,22 @@ function imageCreateBack(imageObj, nth){
     pokeimageBack.src = objectURL;
 })
 }
+// 우리 서버에서 이미지 보내는 코드
+// 위 함수를 대체해야하지만 github에 이미지가 안올라가져서
+// 일단 주석처리
+
+// function imageCreateBack(imageObj, nth){
+//   const pokeimageBack = imageObj;
+//   const xhrBack = new XMLHttpRequest();
+//   const _URLBack = `http://localhost:305/pokeImg/back?nth=${nth}`;
+//   xhrBack.open("GET",_URLBack);
+//   xhrBack.responseType = 'blob';
+//   xhrBack.send();
+//   xhrBack.addEventListener("load",function(){
+//     const objectURL = URL.createObjectURL(xhrBack.response);
+//     pokeimageBack.src = objectURL;
+// })
+// }
 function nameCreate(textObj, nth){
   const namexhr = new XMLHttpRequest();
   const _nameURL = `https://pokeapi.co/api/v2/pokemon-species/${nth}/`;
