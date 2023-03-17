@@ -3,7 +3,8 @@ module.exports = {
   pokeRandomCreate : pokeRandomCreate,
   PokeListWrite : PokeListWrite,
   pokeballAddList : pokeballAddList,
-  pokeFirstRandom : pokeFirstRandom 
+  pokeFirstRandom : pokeFirstRandom,
+  pokeSelect : pokeSelect
 }
 
 function getRandomInt(min, max) {
@@ -26,6 +27,7 @@ function pokeRandomCreate(n){
   };
   pokeinMyPoke["pokeIndex"] = pokeIndex;
   pokeinMyPoke["pokeHp"] = pokeHp;
+  pokeinMyPoke["fightPokeIndex"] = 1;
   return pokeinMyPoke;
 }
 
@@ -48,7 +50,6 @@ function pokeFirstRandom(){
   PokeListWrite(pokeRandomCreate(4));
 }
 
-pokeFirstRandom()
 // nowPokeList와 동일한 폴더에서만 작동합니다.
 // 같은 파일에 PokeListWrite()함수를 쓰고 있습니다
 function pokeballAddList(pokeIndexNumber){
@@ -64,3 +65,11 @@ function pokeballAddList(pokeIndexNumber){
 
 
 // pokeballAddList(101)
+function pokeSelect(nth){
+  let nowpoke = require("./nowPokeList.json");
+  nowpoke.fightPokeIndex = nth + 1;
+  console.log(nowpoke);
+  PokeListWrite(nowpoke);
+}
+
+// pokeSelect(1)

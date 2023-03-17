@@ -70,8 +70,6 @@ function pokeSelectWindow(){
   pokeWindow.children[6].style.paddingLeft = "30px";
   pokeWindow.children[6].style.cursor = "pointer";
 
-  let pokeSet = [1,2,3,4]
-
   const xhr = new XMLHttpRequest();
   const _URL = `http://localhost:305/Pokelist`;
   xhr.open("GET",_URL);
@@ -120,7 +118,15 @@ function pokeSelectWindow(){
       cnt --;
       pokeWindow.children[cnt].prepend(arrowWrap);
     }else if (event.key === 'Enter' && cnt < 6){
-      window.location = 'http://localhost:305/battle?id=KDT&password=305';
+      const xhr = new XMLHttpRequest();
+      const _URL = `http://localhost:305/Pokelist/edit?idx=${cnt}`;
+      xhr.open("GET",_URL);
+      xhr.send();
+      xhr.addEventListener("load",function(){
+        console.log(cnt + " 번째 포켓몬으로 교체")
+        window.location = 'http://localhost:305/battle?id=KDT&password=305';
+      })
+      
       // imageCreateBack(pokeFirstImage, pokeSet[cnt]);
       // nameCreate(header.children[3].children[0], pokeSet[cnt]);
       // skillName(pokeSet[cnt]);

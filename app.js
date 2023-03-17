@@ -1,9 +1,9 @@
 const http = require("http");
 const fs = require("fs");
 const htmlBox = require("./htmlBox");
-const urlCheck = require('./urlChecker');
-
 //const pokemon = require('pokemon')
+const urlCheck = require('./urlChecker');
+const pokeRandomCreate = require("./pokeRandomCreate")
 
 // login 모듈, body 작성/form태그 작성
 const login = require("./login.js");
@@ -21,11 +21,19 @@ const server = http.createServer(function (request, response) {
     response.end();
   }
   if (request.method === "GET" && request.url.startsWith("/Pokelist")) {
+    if(request.url.split("/").length === 2){
       fs.readFile(`./nowPokeList.json`, function (err, data) {
       response.writeHead(200);
       response.write(data);
       response.end();
-    });
+    })
+    }else if(request.url.split("/").length === 3){
+      let nth = request.url.split("=")[1]
+      pokeRandomCreate.pokeSelect(Number(nth));
+      response.writeHead(200);
+      response.end();
+      console.log(nth + " 포켓몬 수정");
+    }
   }
   if (request.method === "GET" && request.url.startsWith("/pokeItem?nth=")) {
     let nth = request.url.split("=")[1];
